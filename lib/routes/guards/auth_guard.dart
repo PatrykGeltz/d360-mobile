@@ -9,6 +9,13 @@ class AuthGuard extends AutoRouteGuard {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     final loggedIn = preferences.getBool('loggedIn') ?? false;
 
-    // TODO: Add auth guard functionality
+    if (loggedIn) {
+      resolver.next(true);
+    } else {
+      router.push(LoginRoute(onSuccess: () {
+        resolver.next(true);
+        router.removeLast();
+      }));
+    }
   }
 }
