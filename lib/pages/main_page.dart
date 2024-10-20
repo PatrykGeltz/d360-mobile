@@ -9,13 +9,6 @@ import 'package:mariner/components/dashboard/section_button.dart';
 import 'package:mariner/components/side_menu.dart';
 import 'package:mariner/pages/subsections_page.dart';
 
-class BtnModel {
-  BtnModel({required this.title, required this.icon});
-
-  final String title;
-  final IconData icon;
-}
-
 class MainPage extends StatelessWidget {
   static const String id = '/main';
 
