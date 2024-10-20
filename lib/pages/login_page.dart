@@ -12,7 +12,7 @@ import 'package:mariner/components/form_input.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
-  // static const String id = '/login';
+  static const String id = '/login';
 
   const LoginPage({super.key, required this.onSuccess});
 

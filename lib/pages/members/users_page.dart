@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:mariner/components/members/user.dart';
 import 'package:mariner/theme/colors.dart';
 
+@RoutePage()
 class UsersPage extends StatelessWidget {
 
   static const String id = '/members/users';

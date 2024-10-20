@@ -94,6 +94,25 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ModuleMenuPage]
+class ModuleMenuRoute extends PageRouteInfo<void> {
+  const ModuleMenuRoute({List<PageRouteInfo>? children})
+      : super(
+          ModuleMenuRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ModuleMenuRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ModuleMenuPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ModulePage]
 class ModuleRoute extends PageRouteInfo<void> {
   const ModuleRoute({List<PageRouteInfo>? children})
@@ -108,6 +127,25 @@ class ModuleRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const ModulePage();
+    },
+  );
+}
+
+/// generated route for
+/// [UsersPage]
+class UsersRoute extends PageRouteInfo<void> {
+  const UsersRoute({List<PageRouteInfo>? children})
+      : super(
+          UsersRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UsersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const UsersPage();
     },
   );
 }

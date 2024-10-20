@@ -23,7 +23,7 @@ import 'package:mariner/pages/sailor_permissions/sailor_permissions_page.dart' a
 import 'package:mariner/pages/sailor_permissions/sailor_permissions_types_page.dart' as Permissions;
 
 const Map < String, List > kSubsections = {
-  '/czlonkowie': <Widget>[
+  '/members': <Widget>[
     SubsectionButton(icon: Icons.groups, title: 'Użytkownicy', route: Members.UsersPage.id,),
     SubsectionButton(icon: Icons.mail, title: 'Zaproszenia', route: Members.InvitesPage.id,),
     SubsectionButton(title: 'Prośby o dołączenie', icon: Icons.insert_invitation, route: Members.WantsToJoinPage.id),

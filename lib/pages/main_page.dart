@@ -12,7 +12,7 @@ import 'package:mariner/pages/subsections_page.dart';
 
 @RoutePage()
 class MainPage extends StatelessWidget {
-  // static const String id = '/main';
+  static const String id = '/main';
 
   const MainPage({super.key});
 
@@ -22,7 +22,7 @@ class MainPage extends StatelessWidget {
       SectionButtonModel(
           title: 'Członkowie',
           icon: Icons.person,
-          // route: '/members',
+          route: '/members',
           hasSubSec: true
       ),
       SectionButtonModel(
