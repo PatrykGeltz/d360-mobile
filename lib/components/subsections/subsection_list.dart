@@ -30,12 +30,12 @@ const Map < String, List > kSubsections = {
     SubsectionButton(icon: Icons.perm_contact_calendar_rounded, title: 'Role', route: Members.RolesPage.id,),
     SubsectionButton(icon: Icons.start, title: 'Statusy', route: Members.StatusesPage.id,)
   ],
-  '/skladki': <Widget>[
+  '/contributions': <Widget>[
     SubsectionButton(title: 'Skladki', icon: Icons.monetization_on, route: Contributions.ContributionsPage.id,),
     SubsectionButton(title: 'Historia składek', icon: Icons.history, route: Contributions.HistoryPage.id,),
     SubsectionButton(title: 'Slownik opłat', icon: Icons.pending_actions, route: Contributions.DictionaryPage.id,)
   ],
-  '/uprawnienia_zeglarskie': <Widget>[
+  '/sailor_permissions': <Widget>[
     SubsectionButton(title: 'Patenty', icon: Icons.badge, route: Permissions.SailorPermissionsPage.id,),
     SubsectionButton(title: 'Rodzaje patentow', icon: Icons.document_scanner, route: Permissions.SailorPermissionsTypesPage.id,)
   ],

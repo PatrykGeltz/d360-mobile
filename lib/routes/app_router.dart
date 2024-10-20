@@ -10,7 +10,7 @@ import 'package:mariner/pages/logout_page.dart';
 import 'package:mariner/pages/module_page.dart';
 import 'package:mariner/pages/module_menu_page.dart';
 
-import 'package:mariner/pages/members/users_page.dart';
+// import 'package:mariner/pages/members/users_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -24,6 +24,8 @@ class AppRouter extends RootStackRouter {
       guards: [AuthGuard()],
       initial: true,
     ),
+
+    // Members module
     AutoRoute(
       page: ModuleRoute.page,
       path: '/members',
@@ -35,12 +37,54 @@ class AppRouter extends RootStackRouter {
             path: '',
             initial: true
         ),
-        AutoRoute(
-            page: UsersRoute.page,
-            path: 'users'
-        )
       ]
     ),
+
+    // Contributions module
+    AutoRoute(
+        page: ModuleRoute.page,
+        path: '/contributions',
+        guards: [AuthGuard()],
+        title: (context, routeData) => 'Składki',
+        children: [
+          AutoRoute(
+              page: ModuleMenuRoute.page,
+              path: '',
+              initial: true
+          ),
+        ]
+    ),
+
+    // Sailor permissions module
+    AutoRoute(
+        page: ModuleRoute.page,
+        path: '/sailor_permissions',
+        guards: [AuthGuard()],
+        title: (context, routeData) => 'Uprawnienia żelarskie',
+        children: [
+          AutoRoute(
+              page: ModuleMenuRoute.page,
+              path: '',
+              initial: true
+          ),
+        ]
+    ),
+
+    // Marina module
+    AutoRoute(
+        page: ModuleRoute.page,
+        path: '/marina',
+        guards: [AuthGuard()],
+        title: (context, routeData) => 'Marina',
+        children: [
+          AutoRoute(
+              page: ModuleMenuRoute.page,
+              path: '',
+              initial: true
+          ),
+        ]
+    ),
+
     AutoRoute(
       page: LoginRoute.page,
       path: '/login',
