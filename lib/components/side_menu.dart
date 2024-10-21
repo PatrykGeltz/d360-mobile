@@ -1,16 +1,21 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:mariner/theme/colors.dart';
-import 'package:mariner/models/side_menu_tile_model.dart';
-import 'package:mariner/theme/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+
+import 'package:mariner/theme/colors.dart';
+import 'package:mariner/theme/theme.dart';
+
+import 'package:mariner/models/side_menu_tile_model.dart';
+
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
 
   @override
-  _SideMenuState createState() => _SideMenuState();
+  State<SideMenu> createState() => _SideMenuState();
 }
 
 class _SideMenuState extends State<SideMenu> {
@@ -18,10 +23,13 @@ class _SideMenuState extends State<SideMenu> {
   String userEmail = '...';
   String avatarUrl = '';
 
+  String appVersion = '1.0.0';
+
   @override
   void initState() {
     super.initState();
     _fetchUserData();
+    _fetchAppVersion();
   }
 
   Future<void> _fetchUserData() async {
@@ -47,6 +55,16 @@ class _SideMenuState extends State<SideMenu> {
         userEmail = '';
       });
     }
+  }
+
+  Future<void> _fetchAppVersion() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+    print(packageInfo);
+
+    setState(() {
+      appVersion = packageInfo.version;
+    });
   }
 
   @override
@@ -145,7 +163,7 @@ class _SideMenuState extends State<SideMenu> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
                 Text(
-                  'wersja: 0.0.1',
+                  'wersja: $appVersion',
                   style: TextStyle(
                     color: colors['textSecondary']
                   )
