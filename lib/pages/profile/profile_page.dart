@@ -8,6 +8,10 @@ import 'package:mariner/theme/colors.dart';
 
 import 'package:mariner/components/side_menu/user_data.dart';
 import 'package:mariner/components/side_menu/edit_credential.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:async';
+import 'package:cross_file_image/cross_file_image.dart';
+import 'dart:io';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget {
@@ -17,6 +21,8 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final routeData = RouteData.of(context);
     final colors = ThemeColors.of(context);
+
+    final ImagePicker picker = ImagePicker();
 
     return Scaffold(
       appBar: AppBar(title: Text(routeData.title(context)),),
@@ -29,8 +35,14 @@ class ProfilePage extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      const CircleAvatar(backgroundColor: Colors.grey, radius: 40.0,),
-                      TextButton(onPressed: (){print('change prof'); }, child: const Text('Zmień zdjęcie'))
+                      CircleAvatar(
+                        backgroundColor: Colors.grey, radius: 40.0,
+                        backgroundImage: XFileImage(Provider.of<UserProvider>(context).imagePath),
+                      ),
+                      TextButton(onPressed: () async {
+                          XFile? response = await picker.pickImage(source: ImageSource.gallery);
+                          Provider.of<UserProvider>(context, listen: false).setImagePath(response!);
+                        }, child: const Text('Zmień zdjęcie'))
                     ],
                   ),
                 ),
@@ -71,7 +83,7 @@ class ProfilePage extends StatelessWidget {
             // ),
             // UserData(
             //     fieldName: 'Rola',
-            //     data: 'wara'
+            //     data: 'woźny'
             // ),
 
             const Expanded(child: SizedBox()),
