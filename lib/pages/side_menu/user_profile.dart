@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mariner/theme/colors.dart';
 import 'package:mariner/components/side_menu/user_data.dart';
+import 'package:mariner/components/side_menu/edit_credential.dart';
 
 class UserProfile extends StatelessWidget {
   static const String id = '/profile';
@@ -49,7 +50,7 @@ class UserProfile extends StatelessWidget {
             UserData(fieldName: 'Imię', data: 'Jan', onTap: (){ print('Edit name'); },),
             UserData(fieldName: 'Nazwisko', data: 'Kowalski', onTap: (){ print('Edit surname');} ),
             UserData(fieldName: 'Pesel', data: '00000000001', onTap: (){ print('Edit pesel'); },),
-            UserData(fieldName: 'Rola', data: 'Woźny'),
+            const UserData(fieldName: 'Rola', data: 'Woźny'),
             
             const Expanded(child: SizedBox()),
             ElevatedButton(onPressed: (){ Navigator.pop(context); }, child: const Text('Zapisz i wyjdź'))
