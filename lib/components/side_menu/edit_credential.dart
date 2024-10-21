@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mariner/components/members/user.dart';
+import 'package:mariner/providers/user_provider.dart';
+// import 'package:mariner/pages/side_menu/user_profile.dart';
 import 'package:mariner/theme/colors.dart';
+import 'package:provider/provider.dart';
 
 class EditCredential extends StatelessWidget {
   const EditCredential({super.key, required this.item});
@@ -30,11 +34,14 @@ class EditCredential extends StatelessWidget {
           TextField(
             textAlign: TextAlign.center,
             onChanged: (value){
-
+              Provider.of<UserProvider>(context, listen: false).changeEditedValue(value);
             },
           ),
 
-          ElevatedButton(onPressed: (){}, child: const Text('Zapisz'))
+          ElevatedButton(onPressed: (){
+            Provider.of<UserProvider>(context, listen: false).setField(item.toLowerCase());
+            Navigator.pop(context);
+          }, child: const Text('Zapisz'))
         ],
       ),
     );

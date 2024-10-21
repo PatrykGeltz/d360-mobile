@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class UserProvider extends ChangeNotifier{
-  String _name = 'Jan';
+  String _name = 'Witek';
   String _surname = 'Kowalski';
   String _pesel = '00000000001';
-  String _role = 'woźny';
+  String _role = 'Warta';
 
   String get name => _name;
   String get surname => _surname;
@@ -15,27 +15,30 @@ class UserProvider extends ChangeNotifier{
 
   void changeEditedValue(String? value){
     editedValue = value.toString();
+    print(editedValue);
   }
 
   void setField(field){
     if(editedValue == '') return;
 
     switch(field){
-      case 'name':
+      case 'imię':
         _name = editedValue;
         break;
-      case 'surname':
+      case 'nazwisko':
         _surname = editedValue;
         break;
       case 'pesel':
         _pesel = editedValue;
         break;
-      case 'role':
+      case 'rola':
         _role = editedValue;
         break;
     }
 
     editedValue = '';
+
+    notifyListeners();
 
   }
 

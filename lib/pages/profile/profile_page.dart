@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+// import 'package:mariner/pages/side_menu/user_profile.dart';
 import 'package:provider/provider.dart';
+import 'package:mariner/providers/user_provider.dart';
 
 import 'package:mariner/theme/colors.dart';
 
@@ -54,12 +56,23 @@ class ProfilePage extends StatelessWidget {
 
             UserData(
               fieldName: 'Imię',
-              data: 'Jan',
+              data: Provider.of<UserProvider>(context).name,
               onTap: (){ print('Edit name');},
             ),
-            UserData(fieldName: 'Nazwisko', data: 'Kowalski', onTap: (){ print('Edit surname');} ),
-            UserData(fieldName: 'Pesel', data: '00000000001', onTap: (){ print('Edit pesel'); },),
-            const UserData(fieldName: 'Rola', data: 'Woźny'),
+            UserData(
+                fieldName: 'Nazwisko',
+                data: Provider.of<UserProvider>(context).surname,
+                onTap: (){ print('Edit surname');}
+            ),
+            // UserData(
+            //   fieldName: 'Pesel',
+            //   data: '000000000',
+            //   onTap: (){ print('Edit pesel'); },
+            // ),
+            // UserData(
+            //     fieldName: 'Rola',
+            //     data: 'wara'
+            // ),
 
             const Expanded(child: SizedBox()),
             ElevatedButton(onPressed: (){ Navigator.pop(context); }, child: const Text('Zapisz i wyjdź'))
