@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 // import 'package:mariner/pages/side_menu/user_profile.dart';
@@ -7,11 +9,9 @@ import 'package:mariner/providers/user_provider.dart';
 import 'package:mariner/theme/colors.dart';
 
 import 'package:mariner/components/side_menu/user_data.dart';
-import 'package:mariner/components/side_menu/edit_credential.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:async';
 import 'package:cross_file_image/cross_file_image.dart';
-import 'dart:io';
+import 'package:mariner/components/side_menu/edit_credential.dart';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget {
@@ -23,6 +23,9 @@ class ProfilePage extends StatelessWidget {
     final colors = ThemeColors.of(context);
 
     final ImagePicker picker = ImagePicker();
+
+    final user = Provider.of<UserProvider>(context);
+    final userSet = Provider.of<UserProvider>(context, listen: false);
 
     return Scaffold(
       appBar: AppBar(title: Text(routeData.title(context)),),
@@ -37,26 +40,38 @@ class ProfilePage extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.grey, radius: 40.0,
-                        backgroundImage: XFileImage(Provider.of<UserProvider>(context).imagePath),
+                        backgroundImage: XFileImage(user.imagePath),
                       ),
                       TextButton(onPressed: () async {
                           XFile? response = await picker.pickImage(source: ImageSource.gallery);
-                          Provider.of<UserProvider>(context, listen: false).setImagePath(response!);
-                        }, child: const Text('Zmień zdjęcie'))
+                          userSet.setImagePath(response!);
+                        },
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                            minimumSize: Size.zero
+                          ),
+                          child: const Text('Zmień zdjęcie')),
+                      Text('Limit 2mb ${user.imageError}',
+                        style: TextStyle(
+                          color: user.imageError == '' ? colors['primary'] : Colors.red
+                        ),
+                      )
                     ],
                   ),
                 ),
 
                 Column(
                   children: [
-                    const Text('Nazwa użytkownika'),
+                    const Text('Nazwa użytkownika',),
                     Row(
                       children: [
-                        const Text('Jan Kowalski', style: TextStyle(
+                        Text(user.nickname, style: const TextStyle(
                             decoration: TextDecoration.underline,
                             fontSize: 20
                         ),),
-                        IconButton(onPressed: (){print('Edit name');}, icon: const Icon(Icons.edit))
+                        IconButton(onPressed: (){
+                          showModalBottomSheet(context: context, builder: (context) => EditCredential(item: 'Nazwa użytkownika'));
+                        }, icon: const Icon(Icons.edit))
                       ],
                     ),
                   ],
@@ -68,12 +83,12 @@ class ProfilePage extends StatelessWidget {
 
             UserData(
               fieldName: 'Imię',
-              data: Provider.of<UserProvider>(context).name,
+              data: user.name,
               onTap: (){ print('Edit name');},
             ),
             UserData(
                 fieldName: 'Nazwisko',
-                data: Provider.of<UserProvider>(context).surname,
+                data: user.surname,
                 onTap: (){ print('Edit surname');}
             ),
             // UserData(

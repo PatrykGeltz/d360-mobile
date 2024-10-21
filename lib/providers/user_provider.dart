@@ -1,21 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:cross_file_image/cross_file_image.dart';
-import 'dart:io';
+import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+
 class UserProvider extends ChangeNotifier{
+  String _nickname = 'Jan Kowalski';
   String _name = 'Witek';
   String _surname = 'Kowalski';
   String _pesel = '00000000001';
   String _role = 'Warta';
   XFile? _img;
 
+  String get nickname => _nickname;
   String get name => _name;
   String get surname => _surname;
   String get pesel => _pesel;
   String get role => _role;
   XFile get imagePath => _img ?? XFile('assets/images/logo.png');
+
+  String imageError = '';
 
   String editedValue = '';
 
@@ -23,7 +27,17 @@ class UserProvider extends ChangeNotifier{
     editedValue = value.toString();
   }
 
-  void setImagePath(XFile? value){
+
+  // 2 * 1038576 = 2mb
+
+  void setImagePath(XFile value) async {
+    Uint8List bytes = await value.readAsBytes();
+    if(bytes.length > 2 * 1048576) {
+      imageError = '- plik za duży';
+      notifyListeners();
+      return;
+    }
+    imageError = '';
     _img = value;
     notifyListeners();
   }
@@ -32,6 +46,9 @@ class UserProvider extends ChangeNotifier{
     if(editedValue == '') return;
 
     switch(field){
+      case 'nazwa użytkownika':
+        _nickname = editedValue;
+        break;
       case 'imię':
         _name = editedValue;
         break;
