@@ -140,6 +140,10 @@ class _SideMenuState extends State<SideMenu> {
           ),
           Row(
             children: [
+              const SizedBox(width: 16.0,),
+              Text('wersja: 0.0.1', style: TextStyle(
+                color: colors['primary']
+              ),),
               const Expanded(child: SizedBox()),
               IconButton(onPressed: (){
                 Provider.of<ThemeDataProvider>(context, listen: false).switchTheme();
