@@ -5,17 +5,20 @@ import 'package:image_picker/image_picker.dart';
 
 
 class UserProvider extends ChangeNotifier{
+  String _nickname = 'Jan Kowalski';
   String _name = 'Witek';
   String _surname = 'Kowalski';
   String _pesel = '00000000001';
   String _role = 'Warta';
   XFile? _img;
 
+  String get nickname => _nickname;
   String get name => _name;
   String get surname => _surname;
   String get pesel => _pesel;
   String get role => _role;
   XFile get imagePath => _img ?? XFile('assets/images/logo.png');
+
   String imageError = '';
 
   String editedValue = '';
@@ -43,6 +46,9 @@ class UserProvider extends ChangeNotifier{
     if(editedValue == '') return;
 
     switch(field){
+      case 'nazwa użytkownika':
+        _nickname = editedValue;
+        break;
       case 'imię':
         _name = editedValue;
         break;

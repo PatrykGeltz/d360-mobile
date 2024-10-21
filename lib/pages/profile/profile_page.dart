@@ -11,6 +11,7 @@ import 'package:mariner/theme/colors.dart';
 import 'package:mariner/components/side_menu/user_data.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cross_file_image/cross_file_image.dart';
+import 'package:mariner/components/side_menu/edit_credential.dart';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget {
@@ -61,14 +62,16 @@ class ProfilePage extends StatelessWidget {
 
                 Column(
                   children: [
-                    const Text('Nazwa użytkownika'),
+                    const Text('Nazwa użytkownika',),
                     Row(
                       children: [
-                        const Text('Jan Kowalski', style: TextStyle(
+                        Text(user.nickname, style: const TextStyle(
                             decoration: TextDecoration.underline,
                             fontSize: 20
                         ),),
-                        IconButton(onPressed: (){print('Edit name');}, icon: const Icon(Icons.edit))
+                        IconButton(onPressed: (){
+                          showModalBottomSheet(context: context, builder: (context) => EditCredential(item: 'Nazwa użytkownika'));
+                        }, icon: const Icon(Icons.edit))
                       ],
                     ),
                   ],
