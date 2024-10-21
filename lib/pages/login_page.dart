@@ -50,7 +50,8 @@ class _LoginPageState extends State<LoginPage> {
     if (response.statusCode == 200) {
       final prefs = await SharedPreferences.getInstance();
       prefs.setBool('loggedIn', true);
-      prefs.setString("access_token", response.body);
+      var data = jsonDecode(response.body);
+      prefs.setString("access_token", data['access_token']);
 
       widget.onSuccess.call();
 
