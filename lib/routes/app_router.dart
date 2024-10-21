@@ -31,6 +31,12 @@ import 'package:mariner/pages/sailor_permissions/menu_page.dart';
 import 'package:mariner/pages/marina/module_page.dart';
 import 'package:mariner/pages/marina/menu_page.dart';
 
+// Statuses module
+import 'package:mariner/pages/statuses/statuses_page.dart';
+
+// Settings module
+import 'package:mariner/pages/settings/settings_page.dart';
+
 part 'app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -122,6 +128,22 @@ class AppRouter extends RootStackRouter {
             initial: true
         ),
       ]
+    ),
+
+    // Statuses module
+    AutoRoute(
+      page: StatusesRoute.page,
+      path: '/statuses',
+      guards: [AuthGuard()],
+      title: (context, routeData) => 'Statusy'
+    ),
+
+    // Statuses module
+    AutoRoute(
+        page: SettingsRoute.page,
+        path: '/settings',
+        guards: [AuthGuard()],
+        title: (context, routeData) => 'Ustawienia klubu'
     ),
 
     AutoRoute(
