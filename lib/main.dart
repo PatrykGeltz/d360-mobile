@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'providers/UserProvider.dart';
 
 import 'theme/theme.dart';
 
@@ -52,9 +53,8 @@ void main() {
   HttpOverrides.global = MyHttpOverrides();
   runApp(MultiProvider( // create the provider
     providers: [
-      ChangeNotifierProvider(
-        create: (_) => ThemeDataProvider(),
-      )
+      ChangeNotifierProvider(create: (_) => ThemeDataProvider()),
+      ChangeNotifierProvider(create: (_) => UserProvider()),
     ],
     child: MainApp(),
   ),);
