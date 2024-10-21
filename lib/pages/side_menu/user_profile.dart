@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mariner/theme/colors.dart';
 import 'package:mariner/components/side_menu/user_data.dart';
 import 'package:mariner/components/side_menu/edit_credential.dart';
+import 'package:provider/provider.dart';
 
 class UserProfile extends StatelessWidget {
   static const String id = '/profile';
@@ -47,7 +48,11 @@ class UserProfile extends StatelessWidget {
             ),
             Divider( color: colors['special'], ),
 
-            UserData(fieldName: 'Imię', data: 'Jan', onTap: (){ print('Edit name'); },),
+            UserData(
+              fieldName: 'Imię',
+              data: 'Jan',
+              onTap: (){ print('Edit name');},
+            ),
             UserData(fieldName: 'Nazwisko', data: 'Kowalski', onTap: (){ print('Edit surname');} ),
             UserData(fieldName: 'Pesel', data: '00000000001', onTap: (){ print('Edit pesel'); },),
             const UserData(fieldName: 'Rola', data: 'Woźny'),
@@ -59,4 +64,45 @@ class UserProfile extends StatelessWidget {
       ),
     );
   }
+}
+
+class UserProvider extends ChangeNotifier{
+  String _name = 'Jan';
+  String _surname = 'Kowalski';
+  String _pesel = '00000000001';
+  String _role = 'woźny';
+
+  String get name => _name;
+  String get surname => _surname;
+  String get pesel => _pesel;
+  String get role => _role;
+
+  String editedValue = '';
+
+  void changeEditedValue(String? value){
+    editedValue = value.toString();
+  }
+
+  void setField(field){
+    if(editedValue == '') return;
+
+    switch(field){
+      case 'name':
+        _name = editedValue;
+        break;
+      case 'surname':
+        _surname = editedValue;
+        break;
+      case 'pesel':
+        _pesel = editedValue;
+        break;
+      case 'role':
+        _role = editedValue;
+        break;
+    }
+
+    editedValue = '';
+
+  }
+
 }

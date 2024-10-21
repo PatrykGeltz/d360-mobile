@@ -22,7 +22,8 @@ class SideMenu extends StatelessWidget {
       ),
       SideMenuTileModel(
           title: 'Ustawienia',
-          icon: Icons.settings
+          icon: Icons.settings,
+          route: '/app/settings'
       ),
       SideMenuTileModel(
           title: 'O aplikacji',

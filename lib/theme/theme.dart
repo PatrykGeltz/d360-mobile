@@ -47,7 +47,6 @@ final ThemeData darkTheme = ThemeData(
       )
   ),
 
-
   floatingActionButtonTheme: FloatingActionButtonThemeData(
     backgroundColor: darkColors['primary']
   ),
