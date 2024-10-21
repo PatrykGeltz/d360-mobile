@@ -15,7 +15,7 @@ import 'package:mariner/routes/app_router.dart';
 //
 // // Importing contributions pages
 // import 'pages/contributions/module_page.dart' as Contributions;
-// import 'pages/contributions/history_pages.dart' as Contributions;
+// import 'pages/contributions/history_page.dart' as Contributions;
 // import 'pages/contributions/dictionary_page.dart' as Contributions;
 //
 // // Importing marina pages

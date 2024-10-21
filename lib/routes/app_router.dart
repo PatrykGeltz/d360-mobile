@@ -22,6 +22,9 @@ import 'package:mariner/pages/members/invites_page.dart';
 // Contributions module
 import 'package:mariner/pages/contributions/module_page.dart';
 import 'package:mariner/pages/contributions/menu_page.dart';
+import 'package:mariner/pages/contributions/contributions_page.dart';
+import 'package:mariner/pages/contributions/dictionary_page.dart';
+import 'package:mariner/pages/contributions/history_page.dart';
 
 // Sailor permissions module
 import 'package:mariner/pages/sailor_permissions/module_page.dart';
@@ -96,6 +99,18 @@ class AppRouter extends RootStackRouter {
             page: ContributionsMenuRoute.page,
             path: '',
             initial: true
+        ),
+        AutoRoute(
+            page: ContributionsContributionsRoute.page,
+            path: 'contributions'
+        ),
+        AutoRoute(
+            page: ContributionsHistoryRoute.page,
+            path: 'history'
+        ),
+        AutoRoute(
+            page: ContributionsDictionaryRoute.page,
+            path: 'dictionary'
         ),
       ]
     ),

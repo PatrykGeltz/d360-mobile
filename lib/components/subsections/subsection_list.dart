@@ -3,7 +3,7 @@ import 'subsection_button.dart';
 
 // Importing contributions pages
 import 'package:mariner/pages/contributions/contributions_page.dart' as Contributions;
-import 'package:mariner/pages/contributions/history_pages.dart' as Contributions;
+import 'package:mariner/pages/contributions/history_page.dart' as Contributions;
 import 'package:mariner/pages/contributions/dictionary_page.dart' as Contributions;
 
 // Importing marina pages
@@ -30,9 +30,9 @@ const Map < String, List > kSubsections = {
     SubsectionButton(icon: Icons.start, title: 'Statusy', route: Members.MembersStatusesPage.id,)
   ],
   '/contributions': <Widget>[
-    SubsectionButton(title: 'Skladki', icon: Icons.monetization_on, route: Contributions.ContributionsPage.id,),
-    SubsectionButton(title: 'Historia składek', icon: Icons.history, route: Contributions.HistoryPage.id,),
-    SubsectionButton(title: 'Slownik opłat', icon: Icons.pending_actions, route: Contributions.DictionaryPage.id,)
+    SubsectionButton(title: 'Skladki', icon: Icons.monetization_on, route: Contributions.ContributionsContributionsPage.id,),
+    SubsectionButton(title: 'Historia składek', icon: Icons.history, route: Contributions.ContributionsHistoryPage.id,),
+    SubsectionButton(title: 'Slownik opłat', icon: Icons.pending_actions, route: Contributions.ContributionsDictionaryPage.id,)
   ],
   '/sailor_permissions': <Widget>[
     SubsectionButton(title: 'Patenty', icon: Icons.badge, route: Permissions.SailorPermissionsPermissionsPage.id,),
