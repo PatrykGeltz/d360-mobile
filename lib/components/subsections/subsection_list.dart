@@ -39,7 +39,7 @@ const Map < String, List > kSubsections = {
     SubsectionButton(title: 'Rodzaje patentow', icon: Icons.document_scanner, route: Permissions.SailorPermissionsPermissionTypesPage.id,)
   ],
   '/marina': <Widget>[
-    SubsectionButton(title: 'Miejsca postojowe', icon: Icons.anchor, route: Marina.ParkingSpacesPage.id,),
-    SubsectionButton(title: 'Szafki', icon: Icons.lock_open, route: Marina.LockersPage.id,)
+    SubsectionButton(title: 'Miejsca postojowe', icon: Icons.anchor, route: Marina.MarinaParkingSpacesPage.id,),
+    SubsectionButton(title: 'Szafki', icon: Icons.lock_open, route: Marina.MarinaLockersPage.id,)
   ]
 };

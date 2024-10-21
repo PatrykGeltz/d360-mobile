@@ -35,6 +35,8 @@ import 'package:mariner/pages/sailor_permissions/permission_types_page.dart';
 // Marina module
 import 'package:mariner/pages/marina/module_page.dart';
 import 'package:mariner/pages/marina/menu_page.dart';
+import 'package:mariner/pages/marina/lockers_page.dart';
+import 'package:mariner/pages/marina/parking_spaces_page.dart';
 
 // Statuses module
 import 'package:mariner/pages/statuses/statuses_page.dart';
@@ -151,6 +153,14 @@ class AppRouter extends RootStackRouter {
             page: MarinaMenuRoute.page,
             path: '',
             initial: true
+        ),
+        AutoRoute(
+            page: MarinaLockersRoute.page,
+            path: 'lockers'
+        ),
+        AutoRoute(
+            page: MarinaParkingSpacesRoute.page,
+            path: 'parking_spaces'
         ),
       ]
     ),

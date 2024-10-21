@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-class LockersPage extends StatelessWidget {
+@RoutePage()
+class MarinaLockersPage extends StatelessWidget {
   static const String id = '/marina/lockers';
 
-  const LockersPage({super.key});
+  const MarinaLockersPage({super.key});
 
   @override
   Widget build(BuildContext context) {

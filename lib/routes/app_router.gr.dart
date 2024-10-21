@@ -189,6 +189,25 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MarinaLockersPage]
+class MarinaLockersRoute extends PageRouteInfo<void> {
+  const MarinaLockersRoute({List<PageRouteInfo>? children})
+      : super(
+          MarinaLockersRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MarinaLockersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MarinaLockersPage();
+    },
+  );
+}
+
+/// generated route for
 /// [MarinaMenuPage]
 class MarinaMenuRoute extends PageRouteInfo<void> {
   const MarinaMenuRoute({List<PageRouteInfo>? children})
@@ -222,6 +241,25 @@ class MarinaRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const MarinaPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MarinaParkingSpacesPage]
+class MarinaParkingSpacesRoute extends PageRouteInfo<void> {
+  const MarinaParkingSpacesRoute({List<PageRouteInfo>? children})
+      : super(
+          MarinaParkingSpacesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MarinaParkingSpacesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MarinaParkingSpacesPage();
     },
   );
 }
