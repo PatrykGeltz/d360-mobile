@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:mariner/theme/colors.dart';
+
 import 'package:mariner/components/side_menu/user_data.dart';
 import 'package:mariner/components/side_menu/edit_credential.dart';
-import 'package:provider/provider.dart';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
+  @override
   Widget build(BuildContext context) {
+    final routeData = RouteData.of(context);
     final colors = ThemeColors.of(context);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Twój profil'),),
+      appBar: AppBar(title: Text(routeData.title(context)),),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
         child: Column(
