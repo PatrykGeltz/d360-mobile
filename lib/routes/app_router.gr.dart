@@ -368,20 +368,20 @@ class ModuleRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [PermissionsMenuPage]
-class PermissionsMenuRoute extends PageRouteInfo<void> {
-  const PermissionsMenuRoute({List<PageRouteInfo>? children})
+/// [SailorPermissionsMenuPage]
+class SailorPermissionsMenuRoute extends PageRouteInfo<void> {
+  const SailorPermissionsMenuRoute({List<PageRouteInfo>? children})
       : super(
-          PermissionsMenuRoute.name,
+          SailorPermissionsMenuRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'PermissionsMenuRoute';
+  static const String name = 'SailorPermissionsMenuRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const PermissionsMenuPage();
+      return const SailorPermissionsMenuPage();
     },
   );
 }

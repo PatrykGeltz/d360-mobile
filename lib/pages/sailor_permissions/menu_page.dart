@@ -4,8 +4,8 @@ import 'package:auto_route/auto_route.dart';
 import '../module_menu_page.dart';
 
 @RoutePage()
-class PermissionsMenuPage extends StatelessWidget {
-  const PermissionsMenuPage({super.key});
+class SailorPermissionsMenuPage extends StatelessWidget {
+  const SailorPermissionsMenuPage({super.key});
 
   @override
   Widget build(BuildContext context) {

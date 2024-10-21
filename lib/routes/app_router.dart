@@ -79,50 +79,50 @@ class AppRouter extends RootStackRouter {
       ]
     ),
 
-    // // Contributions module
-    // AutoRoute(
-    //   page: ModuleRoute.page,
-    //   path: '/contributions',
-    //   // guards: [AuthGuard()],
-    //   title: (context, routeData) => 'Składki',
-    //   children: [
-    //     AutoRoute(
-    //         page: ModuleMenuRoute.page,
-    //         path: '',
-    //         initial: true
-    //     ),
-    //   ]
-    // ),
+    // Contributions module
+    AutoRoute(
+      page: ContributionsRoute.page,
+      path: '/contributions',
+      guards: [AuthGuard()],
+      title: (context, routeData) => 'Składki',
+      children: [
+        AutoRoute(
+            page: ContributionsMenuRoute.page,
+            path: '',
+            initial: true
+        ),
+      ]
+    ),
 
-    // // Sailor permissions module
-    // AutoRoute(
-    //   page: ModuleRoute.page,
-    //   path: '/sailor_permissions',
-    //   // guards: [AuthGuard()],
-    //   title: (context, routeData) => 'Uprawnienia żeglarskie',
-    //   children: [
-    //     AutoRoute(
-    //         page: ModuleMenuRoute.page,
-    //         path: '',
-    //         initial: true
-    //     ),
-    //   ]
-    // ),
+    // Sailor permissions module
+    AutoRoute(
+      page: SailorPermissionsRoute.page,
+      path: '/sailor_permissions',
+      guards: [AuthGuard()],
+      title: (context, routeData) => 'Uprawnienia żeglarskie',
+      children: [
+        AutoRoute(
+            page: SailorPermissionsMenuRoute.page,
+            path: '',
+            initial: true
+        ),
+      ]
+    ),
 
-    // // Marina module
-    // AutoRoute(
-    //   page: ModuleRoute.page,
-    //   path: '/marina',
-    //   // guards: [AuthGuard()],
-    //   title: (context, routeData) => 'Marina',
-    //   children: [
-    //     AutoRoute(
-    //         page: ModuleMenuRoute.page,
-    //         path: '',
-    //         initial: true
-    //     ),
-    //   ]
-    // ),
+    // Marina module
+    AutoRoute(
+      page: MarinaRoute.page,
+      path: '/marina',
+      guards: [AuthGuard()],
+      title: (context, routeData) => 'Marina',
+      children: [
+        AutoRoute(
+            page: MarinaMenuRoute.page,
+            path: '',
+            initial: true
+        ),
+      ]
+    ),
 
     AutoRoute(
       page: LoginRoute.page,
