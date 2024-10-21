@@ -23,6 +23,9 @@ class ProfilePage extends StatelessWidget {
 
     final ImagePicker picker = ImagePicker();
 
+    final user = Provider.of<UserProvider>(context);
+    final userSet = Provider.of<UserProvider>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(title: Text(routeData.title(context)),),
       body: Padding(
@@ -36,20 +39,20 @@ class ProfilePage extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.grey, radius: 40.0,
-                        backgroundImage: XFileImage(Provider.of<UserProvider>(context).imagePath),
+                        backgroundImage: XFileImage(user.imagePath),
                       ),
                       TextButton(onPressed: () async {
                           XFile? response = await picker.pickImage(source: ImageSource.gallery);
-                          Provider.of<UserProvider>(context, listen: false).setImagePath(response!);
+                          userSet.setImagePath(response!);
                         },
                           style: TextButton.styleFrom(
                             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
                             minimumSize: Size.zero
                           ),
                           child: const Text('Zmień zdjęcie')),
-                      Text('Limit 2mb ${Provider.of<UserProvider>(context).imageError}',
+                      Text('Limit 2mb ${user.imageError}',
                         style: TextStyle(
-                          color: Provider.of<UserProvider>(context).imageError == '' ? colors['primary'] : Colors.red
+                          color: user.imageError == '' ? colors['primary'] : Colors.red
                         ),
                       )
                     ],
@@ -77,12 +80,12 @@ class ProfilePage extends StatelessWidget {
 
             UserData(
               fieldName: 'Imię',
-              data: Provider.of<UserProvider>(context).name,
+              data: user.name,
               onTap: (){ print('Edit name');},
             ),
             UserData(
                 fieldName: 'Nazwisko',
-                data: Provider.of<UserProvider>(context).surname,
+                data: user.surname,
                 onTap: (){ print('Edit surname');}
             ),
             // UserData(
