@@ -47,6 +47,12 @@ import 'package:mariner/pages/settings/settings_page.dart';
 // User profile
 import 'package:mariner/pages/profile/profile_page.dart';
 
+// App settings
+import 'package:mariner/pages/app_settings/app_settings_page.dart';
+
+// About app
+import 'package:mariner/pages/about/about_page.dart';
+
 part 'app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -184,11 +190,28 @@ class AppRouter extends RootStackRouter {
         title: (context, routeData) => 'Ustawienia klubu'
     ),
 
+    // User profile
     AutoRoute(
       page: ProfileRoute.page,
       path: '/profile',
       guards: [AuthGuard()],
       title: (context, routeData) => 'Profil użytkownika'
+    ),
+
+    // App settings
+    AutoRoute(
+        page: AppSettingsRoute.page,
+        path: '/app_settings',
+        guards: [AuthGuard()],
+        title: (context, routeData) => 'Ustawienia'
+    ),
+
+    // App settings
+    AutoRoute(
+        page: AboutRoute.page,
+        path: '/about',
+        guards: [AuthGuard()],
+        title: (context, routeData) => 'O aplikacji'
     ),
 
     AutoRoute(
