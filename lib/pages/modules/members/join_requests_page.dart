@@ -11,10 +11,10 @@ class MembersJoinRequestsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Prośby o dołącznie') ,),
+      appBar: AppBar(title: const Text('Prośby o dołączenie') ,),
       body: const Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: const Column(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
           children: [
             SizedBox(height: 20.0,),
             User(name: 'ra8nek', email: '+48 333 33 333',)

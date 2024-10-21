@@ -9,8 +9,10 @@ class MarinaLockersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Szafki'),),
+    return const Scaffold(
+      body: Column(children: <Widget>[
+        Text('Szafki')
+      ]),
     );
   }
 }

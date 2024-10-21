@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 
 import 'package:mariner/theme/colors.dart';
 
-import 'package:mariner/components/dashboard/section_button.dart';
+import 'package:mariner/components/section_button.dart';
 import 'package:mariner/components/side_menu.dart';
 
 import 'package:mariner/data/main_routes.dart';

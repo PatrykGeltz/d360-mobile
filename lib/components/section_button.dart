@@ -18,7 +18,9 @@ class SectionButton extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(40.0))
       ),
+
       onPressed: onPressed,
+
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

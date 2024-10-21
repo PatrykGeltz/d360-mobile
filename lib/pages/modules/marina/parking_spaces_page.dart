@@ -9,9 +9,12 @@ class MarinaParkingSpacesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Miejsca postojowe'),),
-      body: const Center(child: Text('Miejsca postojowe'),),
+    return const Scaffold(
+      body: Column(
+        children: [
+          Text('Miejsca postojowe')
+        ]
+      ),
     );
   }
 }

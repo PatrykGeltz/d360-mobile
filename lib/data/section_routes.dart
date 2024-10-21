@@ -16,7 +16,7 @@ const Map<String, List<SectionRouteModel>> kSectionRoutes = {
     SectionRouteModel(title: 'Slownik opłat', icon: Icons.pending_actions, route: '/contributions/dictionary')
   ],
   '/marina': [
-    SectionRouteModel(title: 'Miejsca postojowe', icon: Icons.anchor, route: '/marina/parking_places'),
+    SectionRouteModel(title: 'Miejsca postojowe', icon: Icons.anchor, route: '/marina/parking_spaces'),
     SectionRouteModel(title: 'Szafki', icon: Icons.lock_open, route: '/marina/lockers')
   ],
   '/sailor_permissions': [
