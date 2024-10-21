@@ -463,6 +463,44 @@ class SailorPermissionsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [SailorPermissionsPermissionTypesPage]
+class SailorPermissionsPermissionTypesRoute extends PageRouteInfo<void> {
+  const SailorPermissionsPermissionTypesRoute({List<PageRouteInfo>? children})
+      : super(
+          SailorPermissionsPermissionTypesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SailorPermissionsPermissionTypesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SailorPermissionsPermissionTypesPage();
+    },
+  );
+}
+
+/// generated route for
+/// [SailorPermissionsPermissionsPage]
+class SailorPermissionsPermissionsRoute extends PageRouteInfo<void> {
+  const SailorPermissionsPermissionsRoute({List<PageRouteInfo>? children})
+      : super(
+          SailorPermissionsPermissionsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SailorPermissionsPermissionsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SailorPermissionsPermissionsPage();
+    },
+  );
+}
+
+/// generated route for
 /// [SettingsPage]
 class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute({List<PageRouteInfo>? children})

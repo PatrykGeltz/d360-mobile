@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mariner/theme/colors.dart';
 
+@RoutePage()
 class SailorPermissionsPermissionsPage extends StatelessWidget {
   static const String id = '/sailor_permissions/sailor_permissions';
 
