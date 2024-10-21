@@ -9,10 +9,8 @@ class MarinaLockersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(children: <Widget>[
-        Text('Szafki')
-      ]),
+    return const Center(
+      child: Text('Szafki')
     );
   }
 }

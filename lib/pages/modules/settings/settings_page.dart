@@ -9,9 +9,11 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final routeData = RouteData.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ustawienia')
+        title: Text(routeData.title(context))
       ),
       body: const Center(child: Text('Ustawienia')),
     );

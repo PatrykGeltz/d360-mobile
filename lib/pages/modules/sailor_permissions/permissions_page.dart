@@ -13,9 +13,6 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
     final colors = ThemeColors.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Uprawnienia żeglarskie')
-      ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 16.0),
         child: Column(

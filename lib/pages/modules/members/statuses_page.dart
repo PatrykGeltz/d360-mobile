@@ -9,8 +9,8 @@ class MembersStatusesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Statusy'),),
+    return const Center(
+      child: Text('Statusy'),
     );
   }
 }

@@ -9,8 +9,8 @@ class ContributionsHistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Historia składek'),),
+    return const Center(
+      child: Text('Historia składek')
     );
   }
 }

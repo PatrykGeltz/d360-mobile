@@ -9,8 +9,8 @@ class ContributionsDictionaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Słownik opłat'),),
+    return const Center(
+      child: Text('Słownik opłat')
     );
   }
 }
