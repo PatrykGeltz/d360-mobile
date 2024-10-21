@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 // import 'package:mariner/pages/side_menu/user_profile.dart';
@@ -7,11 +9,8 @@ import 'package:mariner/providers/user_provider.dart';
 import 'package:mariner/theme/colors.dart';
 
 import 'package:mariner/components/side_menu/user_data.dart';
-import 'package:mariner/components/side_menu/edit_credential.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:async';
 import 'package:cross_file_image/cross_file_image.dart';
-import 'dart:io';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget {
@@ -42,7 +41,17 @@ class ProfilePage extends StatelessWidget {
                       TextButton(onPressed: () async {
                           XFile? response = await picker.pickImage(source: ImageSource.gallery);
                           Provider.of<UserProvider>(context, listen: false).setImagePath(response!);
-                        }, child: const Text('Zmień zdjęcie'))
+                        },
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                            minimumSize: Size.zero
+                          ),
+                          child: const Text('Zmień zdjęcie')),
+                      Text('Limit 2mb ${Provider.of<UserProvider>(context).imageError}',
+                        style: TextStyle(
+                          color: Provider.of<UserProvider>(context).imageError == '' ? colors['primary'] : Colors.red
+                        ),
+                      )
                     ],
                   ),
                 ),
