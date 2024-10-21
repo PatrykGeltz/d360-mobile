@@ -4,11 +4,11 @@ import 'package:mariner/components/members/user.dart';
 import 'package:mariner/theme/colors.dart';
 
 @RoutePage()
-class UsersPage extends StatelessWidget {
+class MembersUsersPage extends StatelessWidget {
 
   static const String id = '/members/users';
 
-  const UsersPage({super.key});
+  const MembersUsersPage({super.key});
 
 
 

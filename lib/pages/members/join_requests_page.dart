@@ -1,10 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mariner/components/members/user_wants_to_join.dart';
 
-class WantsToJoinPage extends StatelessWidget {
+@RoutePage()
+class MembersJoinRequestsPage extends StatelessWidget {
   static const String id = '/members/wants_to_join';
 
-  const WantsToJoinPage({super.key});
+  const MembersJoinRequestsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

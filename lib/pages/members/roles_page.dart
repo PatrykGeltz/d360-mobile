@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-class RolesPage extends StatelessWidget {
+@RoutePage()
+class MembersRolesPage extends StatelessWidget {
   static const String id = '/members/roles';
 
-  const RolesPage({super.key});
+  const MembersRolesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
