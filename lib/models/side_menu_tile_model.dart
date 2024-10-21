@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class SideMenuTileModel {
@@ -11,10 +12,12 @@ class SideMenuTileModel {
   get hasRoute => route != null;
 
   executeWith(BuildContext context) {
+    final router = AutoRouter.of(context);
+
     if (returnRoute) {
-      Navigator.pop(context);
+      router.back();
     } else if (hasRoute) {
-      Navigator.pushNamed(context, route!);
+      router.pushNamed(route!);
     }
   }
 }

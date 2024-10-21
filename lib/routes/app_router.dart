@@ -44,6 +44,9 @@ import 'package:mariner/pages/statuses/statuses_page.dart';
 // Settings module
 import 'package:mariner/pages/settings/settings_page.dart';
 
+// User profile
+import 'package:mariner/pages/profile/profile_page.dart';
+
 part 'app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -182,9 +185,17 @@ class AppRouter extends RootStackRouter {
     ),
 
     AutoRoute(
+      page: ProfileRoute.page,
+      path: '/profile',
+      guards: [AuthGuard()],
+      title: (context, routeData) => 'Profil użytkownika'
+    ),
+
+    AutoRoute(
       page: LoginRoute.page,
       path: '/login',
     ),
+
     AutoRoute(
       page: LogoutRoute.page,
       path: '/logout',

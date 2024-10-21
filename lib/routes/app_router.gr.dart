@@ -463,6 +463,25 @@ class ModuleRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ProfilePage]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProfilePage();
+    },
+  );
+}
+
+/// generated route for
 /// [SailorPermissionsMenuPage]
 class SailorPermissionsMenuRoute extends PageRouteInfo<void> {
   const SailorPermissionsMenuRoute({List<PageRouteInfo>? children})
