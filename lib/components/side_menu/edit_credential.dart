@@ -36,6 +36,14 @@ class EditCredential extends StatelessWidget {
             onChanged: (value){
               Provider.of<UserProvider>(context, listen: false).changeEditedValue(value);
             },
+            decoration: InputDecoration(
+              focusColor: colors['textPrimary'],
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: colors['textSecondary'], width: 2.0),
+              )
+            ),
+            cursorColor: colors['special'],
+            autofocus: true,
           ),
 
           ElevatedButton(onPressed: (){
