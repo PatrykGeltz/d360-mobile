@@ -94,6 +94,101 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MembersInvitesPage]
+class MembersInvitesRoute extends PageRouteInfo<void> {
+  const MembersInvitesRoute({List<PageRouteInfo>? children})
+      : super(
+          MembersInvitesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MembersInvitesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MembersInvitesPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MembersJoinRequestsPage]
+class MembersJoinRequestsRoute extends PageRouteInfo<void> {
+  const MembersJoinRequestsRoute({List<PageRouteInfo>? children})
+      : super(
+          MembersJoinRequestsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MembersJoinRequestsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MembersJoinRequestsPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MembersRolesPage]
+class MembersRolesRoute extends PageRouteInfo<void> {
+  const MembersRolesRoute({List<PageRouteInfo>? children})
+      : super(
+          MembersRolesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MembersRolesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MembersRolesPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MembersStatusesPage]
+class MembersStatusesRoute extends PageRouteInfo<void> {
+  const MembersStatusesRoute({List<PageRouteInfo>? children})
+      : super(
+          MembersStatusesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MembersStatusesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MembersStatusesPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MembersUsersPage]
+class MembersUsersRoute extends PageRouteInfo<void> {
+  const MembersUsersRoute({List<PageRouteInfo>? children})
+      : super(
+          MembersUsersRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MembersUsersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MembersUsersPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ModuleMenuPage]
 class ModuleMenuRoute extends PageRouteInfo<void> {
   const ModuleMenuRoute({List<PageRouteInfo>? children})

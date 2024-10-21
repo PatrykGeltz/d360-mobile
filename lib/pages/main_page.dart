@@ -28,30 +28,30 @@ class MainPage extends StatelessWidget {
       SectionButtonModel(
           title: 'Składki',
           icon: Icons.monetization_on,
-          // route: '/skladki',
+          route: '/contributions',
           hasSubSec: true
       ),
       SectionButtonModel(
           title: 'Uprawnienia żeglarskie',
           icon: Icons.note_add,
-          // route: '/uprawnienia_zeglarskie',
+          route: '/sailor_permissions',
           hasSubSec: true
       ),
       SectionButtonModel(
           title: 'Marina',
           icon: Icons.waves,
-          // route: '/marina',
+          route: '/marina',
           hasSubSec: true
       ),
       SectionButtonModel(
         title: 'Statusy',
         icon: Icons.star,
-        // route: '/statuses'
+        route: '/statuses'
       ),
       SectionButtonModel(
         title: 'Ustawienia klubu',
         icon: Icons.settings,
-        // route: '/settings'
+        route: '/settings'
       ),
     ];
 
@@ -106,6 +106,7 @@ class MainPage extends StatelessWidget {
                 // }
                 if (button.hasRoute) {
                   final router = AutoRouter.of(context);
+                  print(button.route);
                   router.pushNamed(button.route!);
                 }
               },

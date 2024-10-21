@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-class StatusesPage extends StatelessWidget {
+@RoutePage()
+class MembersStatusesPage extends StatelessWidget {
   static const String id = '/members/statuses';
   
-  const StatusesPage({super.key});
+  const MembersStatusesPage({super.key});
 
   @override
   Widget build(BuildContext context) {

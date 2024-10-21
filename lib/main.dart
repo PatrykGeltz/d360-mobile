@@ -27,7 +27,7 @@ import 'package:mariner/routes/app_router.dart';
 // import 'pages/members/invites_page.dart' as Members;
 // import 'pages/members/roles_page.dart' as Members;
 // import 'pages/members/statuses_page.dart' as Members;
-// import 'pages/members/wants_to_join_page.dart' as Members;
+// import 'pages/members/join_requests_page.dart' as Members;
 //
 // // Importing sailor permissions pages
 // import 'pages/sailor_permissions/sailor_permissions_page.dart' as Permissions;

@@ -1,10 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mariner/components/members/user.dart';
 
-class InvitesPage extends StatelessWidget {
+@RoutePage()
+class MembersInvitesPage extends StatelessWidget {
   static const String id = '/members/invites';
 
-  const InvitesPage({super.key});
+  const MembersInvitesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
