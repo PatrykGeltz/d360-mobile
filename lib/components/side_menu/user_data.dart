@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mariner/components/side_menu/edit_credential.dart';
 
 class UserData extends StatelessWidget {
   const UserData({super.key, required this.fieldName, required this.data, this.onTap });
@@ -13,7 +14,9 @@ class UserData extends StatelessWidget {
       children: [
         Text('$fieldName: ', style: const TextStyle(fontSize: 16.0),),
         Expanded(child: Text(data, style: const TextStyle(fontSize: 16.0),)),
-        IconButton(onPressed: onTap, icon: const Icon(Icons.edit) )
+        IconButton(onPressed: (){
+          showModalBottomSheet(context: context, builder: (context) => EditCredential(item: fieldName));
+        }, icon: const Icon(Icons.edit) )
       ],
     );
   }
