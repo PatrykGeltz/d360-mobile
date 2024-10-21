@@ -14,7 +14,7 @@ class SideMenuTileModel {
     if (returnRoute) {
       Navigator.pop(context);
     } else if (hasRoute) {
-      Navigator.pushReplacementNamed(context, route!);
+      Navigator.pushNamed(context, route!);
     }
   }
 }

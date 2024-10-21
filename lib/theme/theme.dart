@@ -18,6 +18,11 @@ final ThemeData lightTheme = ThemeData(
           foregroundColor: lightColors['textPrimary']
       )
   ),
+  textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+          foregroundColor: lightColors['textPrimary']
+      )
+  ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: lightColors['primary']
   )
@@ -29,15 +34,24 @@ final ThemeData darkTheme = ThemeData(
     backgroundColor: darkColors['primary']
   ),
   scaffoldBackgroundColor: darkColors['background'],
+
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: darkColors['primary'],
         foregroundColor: darkColors['textPrimary']
       )
   ),
+  textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+          foregroundColor: darkColors['textPrimary']
+      )
+  ),
+
+
   floatingActionButtonTheme: FloatingActionButtonThemeData(
     backgroundColor: darkColors['primary']
-  )
+  ),
+
 );
 
 
