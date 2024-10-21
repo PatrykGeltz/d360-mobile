@@ -8,6 +8,7 @@ import 'package:mariner/theme/theme.dart';
 
 import 'package:provider/provider.dart';
 
+
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});
 
@@ -16,7 +17,8 @@ class SideMenu extends StatelessWidget {
     const List<SideMenuTileModel> routes = [
       SideMenuTileModel(
         title: 'Profil użytkownika',
-        icon: Icons.person
+        icon: Icons.person,
+        route: '/profile'
       ),
       SideMenuTileModel(
           title: 'Ustawienia',
@@ -24,7 +26,7 @@ class SideMenu extends StatelessWidget {
       ),
       SideMenuTileModel(
           title: 'O aplikacji',
-          icon: Icons.info
+          icon: Icons.info,
       ),
     ];
 
