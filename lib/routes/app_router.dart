@@ -11,38 +11,38 @@ import 'package:mariner/pages/module_page.dart';
 import 'package:mariner/pages/module_menu_page.dart';
 
 // Members module
-import 'package:mariner/pages/members/module_page.dart';
-import 'package:mariner/pages/members/menu_page.dart';
-import 'package:mariner/pages/members/users_page.dart';
-import 'package:mariner/pages/members/join_requests_page.dart';
-import 'package:mariner/pages/members/statuses_page.dart';
-import 'package:mariner/pages/members/roles_page.dart';
-import 'package:mariner/pages/members/invites_page.dart';
+import 'package:mariner/pages/modules/members/module_page.dart';
+import 'package:mariner/pages/modules/members/menu_page.dart';
+import 'package:mariner/pages/modules/members/users_page.dart';
+import 'package:mariner/pages/modules/members/join_requests_page.dart';
+import 'package:mariner/pages/modules/members/statuses_page.dart';
+import 'package:mariner/pages/modules/members/roles_page.dart';
+import 'package:mariner/pages/modules/members/invites_page.dart';
 
 // Contributions module
-import 'package:mariner/pages/contributions/module_page.dart';
-import 'package:mariner/pages/contributions/menu_page.dart';
-import 'package:mariner/pages/contributions/contributions_page.dart';
-import 'package:mariner/pages/contributions/dictionary_page.dart';
-import 'package:mariner/pages/contributions/history_page.dart';
+import 'package:mariner/pages/modules/contributions/module_page.dart';
+import 'package:mariner/pages/modules/contributions/menu_page.dart';
+import 'package:mariner/pages/modules/contributions/contributions_page.dart';
+import 'package:mariner/pages/modules/contributions/dictionary_page.dart';
+import 'package:mariner/pages/modules/contributions/history_page.dart';
 
 // Sailor permissions module
-import 'package:mariner/pages/sailor_permissions/module_page.dart';
-import 'package:mariner/pages/sailor_permissions/menu_page.dart';
-import 'package:mariner/pages/sailor_permissions/permissions_page.dart';
-import 'package:mariner/pages/sailor_permissions/permission_types_page.dart';
+import 'package:mariner/pages/modules/sailor_permissions/module_page.dart';
+import 'package:mariner/pages/modules/sailor_permissions/menu_page.dart';
+import 'package:mariner/pages/modules/sailor_permissions/permissions_page.dart';
+import 'package:mariner/pages/modules/sailor_permissions/permission_types_page.dart';
 
 // Marina module
-import 'package:mariner/pages/marina/module_page.dart';
-import 'package:mariner/pages/marina/menu_page.dart';
-import 'package:mariner/pages/marina/lockers_page.dart';
-import 'package:mariner/pages/marina/parking_spaces_page.dart';
+import 'package:mariner/pages/modules/marina/module_page.dart';
+import 'package:mariner/pages/modules/marina/menu_page.dart';
+import 'package:mariner/pages/modules/marina/lockers_page.dart';
+import 'package:mariner/pages/modules/marina/parking_spaces_page.dart';
 
 // Statuses module
-import 'package:mariner/pages/statuses/statuses_page.dart';
+import 'package:mariner/pages/modules/statuses/statuses_page.dart';
 
 // Settings module
-import 'package:mariner/pages/settings/settings_page.dart';
+import 'package:mariner/pages/modules/settings/settings_page.dart';
 
 // User profile
 import 'package:mariner/pages/profile/profile_page.dart';

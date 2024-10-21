@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
-import '../module_menu_page.dart';
+import 'package:mariner/pages/module_menu_page.dart';
 
 @RoutePage()
 class ContributionsMenuPage extends StatelessWidget {

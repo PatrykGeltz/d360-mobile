@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 import 'subsection_button.dart';
 
 // Importing contributions pages
-import 'package:mariner/pages/contributions/contributions_page.dart' as Contributions;
-import 'package:mariner/pages/contributions/history_page.dart' as Contributions;
-import 'package:mariner/pages/contributions/dictionary_page.dart' as Contributions;
+import 'package:mariner/pages/modules/contributions/contributions_page.dart' as Contributions;
+import 'package:mariner/pages/modules/contributions/history_page.dart' as Contributions;
+import 'package:mariner/pages/modules/contributions/dictionary_page.dart' as Contributions;
 
 // Importing marina pages
-import 'package:mariner/pages/marina/parking_spaces_page.dart' as Marina;
-import 'package:mariner/pages/marina/lockers_page.dart' as Marina;
+import 'package:mariner/pages/modules/marina/parking_spaces_page.dart' as Marina;
+import 'package:mariner/pages/modules/marina/lockers_page.dart' as Marina;
 
 // Importing members pages
-import 'package:mariner/pages/members/users_page.dart' as Members;
-import 'package:mariner/pages/members/invites_page.dart' as Members;
-import 'package:mariner/pages/members/roles_page.dart' as Members;
-import 'package:mariner/pages/members/statuses_page.dart' as Members;
-import 'package:mariner/pages/members/join_requests_page.dart' as Members;
+import 'package:mariner/pages/modules/members/users_page.dart' as Members;
+import 'package:mariner/pages/modules/members/invites_page.dart' as Members;
+import 'package:mariner/pages/modules/members/roles_page.dart' as Members;
+import 'package:mariner/pages/modules/members/statuses_page.dart' as Members;
+import 'package:mariner/pages/modules/members/join_requests_page.dart' as Members;
 
 // Importing sailor permissions pages
-import 'package:mariner/pages/sailor_permissions/permissions_page.dart' as Permissions;
-import 'package:mariner/pages/sailor_permissions/permission_types_page.dart' as Permissions;
+import 'package:mariner/pages/modules/sailor_permissions/permissions_page.dart' as Permissions;
+import 'package:mariner/pages/modules/sailor_permissions/permission_types_page.dart' as Permissions;
 
 const Map < String, List > kSubsections = {
   '/members': <Widget>[
