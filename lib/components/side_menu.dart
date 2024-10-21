@@ -1,16 +1,53 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:mariner/theme/colors.dart';
-
 import 'package:mariner/models/side_menu_tile_model.dart';
-
 import 'package:mariner/theme/theme.dart';
-
 import 'package:provider/provider.dart';
-
-
-class SideMenu extends StatelessWidget {
+import 'package:shared_preferences/shared_preferences.dart';
+class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
+
+  @override
+  _SideMenuState createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+  String userName = '...';
+  String userEmail = '...';
+  String avatarUrl = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData();
+  }
+
+  Future<void> _fetchUserData() async {
+    const url = 'https://acme-dev.d360.pl/api/v1/user';
+    final prefs = await SharedPreferences.getInstance();
+    var token = prefs.getString("access_token");
+    try {
+      final response = await http.get(Uri.parse(url), headers: {"Authorization": "Bearer $token"});
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        print(data);
+        setState(() {
+          userName = data['data']['name'] ?? 'No Name';
+          userEmail = data['data']['email'] ?? 'No Email';
+          avatarUrl = data['data']['avatar_photo'] ?? '';
+        });
+      } else {
+        throw Exception('Failed to load user data');
+      }
+    } catch (e) {
+      setState(() {
+        userName = '';
+        userEmail = '';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +90,14 @@ class SideMenu extends StatelessWidget {
                     CircleAvatar(
                       radius: 24.0,
                       backgroundColor: colors['textSecondary'],
+                      backgroundImage: avatarUrl.isNotEmpty ? NetworkImage(avatarUrl) : null,
                     ),
                     const SizedBox(width: 8.0),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Jan Kowalski',
+                          userName,
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 16.0,
@@ -67,7 +105,7 @@ class SideMenu extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'tester@gmail.com',
+                          userEmail,
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 12.0,
