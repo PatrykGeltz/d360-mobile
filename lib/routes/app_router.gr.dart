@@ -10,6 +10,63 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [ContributionsContributionsPage]
+class ContributionsContributionsRoute extends PageRouteInfo<void> {
+  const ContributionsContributionsRoute({List<PageRouteInfo>? children})
+      : super(
+          ContributionsContributionsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ContributionsContributionsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ContributionsContributionsPage();
+    },
+  );
+}
+
+/// generated route for
+/// [ContributionsDictionaryPage]
+class ContributionsDictionaryRoute extends PageRouteInfo<void> {
+  const ContributionsDictionaryRoute({List<PageRouteInfo>? children})
+      : super(
+          ContributionsDictionaryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ContributionsDictionaryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ContributionsDictionaryPage();
+    },
+  );
+}
+
+/// generated route for
+/// [ContributionsHistoryPage]
+class ContributionsHistoryRoute extends PageRouteInfo<void> {
+  const ContributionsHistoryRoute({List<PageRouteInfo>? children})
+      : super(
+          ContributionsHistoryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ContributionsHistoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ContributionsHistoryPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ContributionsMenuPage]
 class ContributionsMenuRoute extends PageRouteInfo<void> {
   const ContributionsMenuRoute({List<PageRouteInfo>? children})
