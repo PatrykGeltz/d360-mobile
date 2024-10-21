@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 
+import '../module_page.dart';
+
+@RoutePage()
 class ContributionsPage extends StatelessWidget {
-  static const id = '/contributions/contributions';
   const ContributionsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Składki'),),
-      body: const Center(child: Text('Składki'),),
-    );
+    return const ModulePage();
   }
 }

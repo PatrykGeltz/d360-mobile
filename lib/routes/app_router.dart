@@ -11,11 +11,25 @@ import 'package:mariner/pages/module_page.dart';
 import 'package:mariner/pages/module_menu_page.dart';
 
 // Members module
+import 'package:mariner/pages/members/module_page.dart';
+import 'package:mariner/pages/members/menu_page.dart';
 import 'package:mariner/pages/members/users_page.dart';
 import 'package:mariner/pages/members/join_requests_page.dart';
 import 'package:mariner/pages/members/statuses_page.dart';
 import 'package:mariner/pages/members/roles_page.dart';
 import 'package:mariner/pages/members/invites_page.dart';
+
+// Contributions module
+import 'package:mariner/pages/contributions/module_page.dart';
+import 'package:mariner/pages/contributions/menu_page.dart';
+
+// Sailor permissions module
+import 'package:mariner/pages/sailor_permissions/module_page.dart';
+import 'package:mariner/pages/sailor_permissions/menu_page.dart';
+
+// Marina module
+import 'package:mariner/pages/marina/module_page.dart';
+import 'package:mariner/pages/marina/menu_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -32,13 +46,13 @@ class AppRouter extends RootStackRouter {
 
     // Members module
     AutoRoute(
-      page: ModuleRoute.page,
+      page: MembersRoute.page,
       path: '/members',
       guards: [AuthGuard()],
       title: (context, routeData) => 'Członkowie',
       children: [
         AutoRoute(
-            page: ModuleMenuRoute.page,
+            page: MembersMenuRoute.page,
             path: '',
             initial: true
         ),

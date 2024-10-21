@@ -10,6 +10,44 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [ContributionsMenuPage]
+class ContributionsMenuRoute extends PageRouteInfo<void> {
+  const ContributionsMenuRoute({List<PageRouteInfo>? children})
+      : super(
+          ContributionsMenuRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ContributionsMenuRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ContributionsMenuPage();
+    },
+  );
+}
+
+/// generated route for
+/// [ContributionsPage]
+class ContributionsRoute extends PageRouteInfo<void> {
+  const ContributionsRoute({List<PageRouteInfo>? children})
+      : super(
+          ContributionsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ContributionsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ContributionsPage();
+    },
+  );
+}
+
+/// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
   LoginRoute({
@@ -94,6 +132,44 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MarinaMenuPage]
+class MarinaMenuRoute extends PageRouteInfo<void> {
+  const MarinaMenuRoute({List<PageRouteInfo>? children})
+      : super(
+          MarinaMenuRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MarinaMenuRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MarinaMenuPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MarinaPage]
+class MarinaRoute extends PageRouteInfo<void> {
+  const MarinaRoute({List<PageRouteInfo>? children})
+      : super(
+          MarinaRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MarinaRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MarinaPage();
+    },
+  );
+}
+
+/// generated route for
 /// [MembersInvitesPage]
 class MembersInvitesRoute extends PageRouteInfo<void> {
   const MembersInvitesRoute({List<PageRouteInfo>? children})
@@ -127,6 +203,44 @@ class MembersJoinRequestsRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const MembersJoinRequestsPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MembersMenuPage]
+class MembersMenuRoute extends PageRouteInfo<void> {
+  const MembersMenuRoute({List<PageRouteInfo>? children})
+      : super(
+          MembersMenuRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MembersMenuRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MembersMenuPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MembersPage]
+class MembersRoute extends PageRouteInfo<void> {
+  const MembersRoute({List<PageRouteInfo>? children})
+      : super(
+          MembersRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MembersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MembersPage();
     },
   );
 }
@@ -190,10 +304,17 @@ class MembersUsersRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ModuleMenuPage]
-class ModuleMenuRoute extends PageRouteInfo<void> {
-  const ModuleMenuRoute({List<PageRouteInfo>? children})
-      : super(
+class ModuleMenuRoute extends PageRouteInfo<ModuleMenuRouteArgs> {
+  ModuleMenuRoute({
+    Key? key,
+    required String route,
+    List<PageRouteInfo>? children,
+  }) : super(
           ModuleMenuRoute.name,
+          args: ModuleMenuRouteArgs(
+            key: key,
+            route: route,
+          ),
           initialChildren: children,
         );
 
@@ -202,9 +323,29 @@ class ModuleMenuRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const ModuleMenuPage();
+      final args = data.argsAs<ModuleMenuRouteArgs>();
+      return ModuleMenuPage(
+        key: args.key,
+        route: args.route,
+      );
     },
   );
+}
+
+class ModuleMenuRouteArgs {
+  const ModuleMenuRouteArgs({
+    this.key,
+    required this.route,
+  });
+
+  final Key? key;
+
+  final String route;
+
+  @override
+  String toString() {
+    return 'ModuleMenuRouteArgs{key: $key, route: $route}';
+  }
 }
 
 /// generated route for
@@ -222,6 +363,44 @@ class ModuleRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const ModulePage();
+    },
+  );
+}
+
+/// generated route for
+/// [PermissionsMenuPage]
+class PermissionsMenuRoute extends PageRouteInfo<void> {
+  const PermissionsMenuRoute({List<PageRouteInfo>? children})
+      : super(
+          PermissionsMenuRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PermissionsMenuRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PermissionsMenuPage();
+    },
+  );
+}
+
+/// generated route for
+/// [SailorPermissionsPage]
+class SailorPermissionsRoute extends PageRouteInfo<void> {
+  const SailorPermissionsRoute({List<PageRouteInfo>? children})
+      : super(
+          SailorPermissionsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SailorPermissionsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SailorPermissionsPage();
     },
   );
 }

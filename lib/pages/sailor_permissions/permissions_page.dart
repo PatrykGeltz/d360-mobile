@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mariner/theme/colors.dart';
 
-class SailorPermissionsPage extends StatelessWidget {
+class SailorPermissionsPermissionsPage extends StatelessWidget {
   static const String id = '/sailor_permissions/sailor_permissions';
 
-  const SailorPermissionsPage({super.key});
+  const SailorPermissionsPermissionsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

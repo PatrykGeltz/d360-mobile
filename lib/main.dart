@@ -14,7 +14,7 @@ import 'package:mariner/routes/app_router.dart';
 // import 'pages/subsections_page.dart';
 //
 // // Importing contributions pages
-// import 'pages/contributions/contributions_page.dart' as Contributions;
+// import 'pages/contributions/module_page.dart' as Contributions;
 // import 'pages/contributions/history_pages.dart' as Contributions;
 // import 'pages/contributions/dictionary_page.dart' as Contributions;
 //
@@ -30,8 +30,8 @@ import 'package:mariner/routes/app_router.dart';
 // import 'pages/members/join_requests_page.dart' as Members;
 //
 // // Importing sailor permissions pages
-// import 'pages/sailor_permissions/sailor_permissions_page.dart' as Permissions;
-// import 'pages/sailor_permissions/sailor_permissions_types_page.dart' as Permissions;
+// import 'pages/sailor_permissions/permissions_page.dart' as Permissions;
+// import 'pages/sailor_permissions/permission_types_page.dart' as Permissions;
 //
 // // Importing settings pages
 // import 'pages/settings/settings_page.dart' as Settings;

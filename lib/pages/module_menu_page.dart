@@ -8,13 +8,14 @@ import 'package:mariner/components/subsections/subsection_list.dart';
 
 @RoutePage()
 class ModuleMenuPage extends StatelessWidget {
-  const ModuleMenuPage({super.key});
+  const ModuleMenuPage({super.key, required this.route});
+
+  final String route;
 
   @override
   Widget build(BuildContext context) {
     final colors = ThemeColors.of(context);
 
-    final route = RouteData.of(context).parent!.path;
     final List buttons = kSubsections[route]?.toList() ?? const [SubsectionButton(icon: Icons.close, title: 'Brak podsekcji')];
 
     return Scaffold(

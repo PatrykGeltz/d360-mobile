@@ -18,8 +18,8 @@ import 'package:mariner/pages/members/statuses_page.dart' as Members;
 import 'package:mariner/pages/members/join_requests_page.dart' as Members;
 
 // Importing sailor permissions pages
-import 'package:mariner/pages/sailor_permissions/sailor_permissions_page.dart' as Permissions;
-import 'package:mariner/pages/sailor_permissions/sailor_permissions_types_page.dart' as Permissions;
+import 'package:mariner/pages/sailor_permissions/permissions_page.dart' as Permissions;
+import 'package:mariner/pages/sailor_permissions/permission_types_page.dart' as Permissions;
 
 const Map < String, List > kSubsections = {
   '/members': <Widget>[
@@ -35,8 +35,8 @@ const Map < String, List > kSubsections = {
     SubsectionButton(title: 'Slownik opłat', icon: Icons.pending_actions, route: Contributions.DictionaryPage.id,)
   ],
   '/sailor_permissions': <Widget>[
-    SubsectionButton(title: 'Patenty', icon: Icons.badge, route: Permissions.SailorPermissionsPage.id,),
-    SubsectionButton(title: 'Rodzaje patentow', icon: Icons.document_scanner, route: Permissions.SailorPermissionsTypesPage.id,)
+    SubsectionButton(title: 'Patenty', icon: Icons.badge, route: Permissions.SailorPermissionsPermissionsPage.id,),
+    SubsectionButton(title: 'Rodzaje patentow', icon: Icons.document_scanner, route: Permissions.SailorPermissionsPermissionTypesPage.id,)
   ],
   '/marina': <Widget>[
     SubsectionButton(title: 'Miejsca postojowe', icon: Icons.anchor, route: Marina.ParkingSpacesPage.id,),
