@@ -21,13 +21,14 @@ class SideMenu extends StatelessWidget {
         route: '/profile'
       ),
       SideMenuTileModel(
-          title: 'Ustawienia',
-          icon: Icons.settings,
-          route: '/app/settings'
+        title: 'Ustawienia',
+        icon: Icons.settings,
+        route: '/app_settings'
       ),
       SideMenuTileModel(
-          title: 'O aplikacji',
-          icon: Icons.info,
+        title: 'O aplikacji',
+        icon: Icons.info,
+        route: '/about'
       ),
     ];
 
@@ -105,7 +106,7 @@ class SideMenu extends StatelessWidget {
               IconButton(onPressed: (){
                 Provider.of<ThemeDataProvider>(context, listen: false).switchTheme();
               }, icon: Icon(Provider.of<ThemeDataProvider>(context).getThemeIcon() , size: 45.0,)),
-              SizedBox(width: 10.0,)
+              const SizedBox(width: 8.0,)
             ],
           )
         ],

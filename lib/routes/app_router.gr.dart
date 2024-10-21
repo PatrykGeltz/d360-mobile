@@ -10,6 +10,25 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [AppSettingsPage]
+class AppSettingsRoute extends PageRouteInfo<void> {
+  const AppSettingsRoute({List<PageRouteInfo>? children})
+      : super(
+          AppSettingsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AppSettingsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AppSettingsPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ContributionsContributionsPage]
 class ContributionsContributionsRoute extends PageRouteInfo<void> {
   const ContributionsContributionsRoute({List<PageRouteInfo>? children})
