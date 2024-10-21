@@ -195,7 +195,7 @@ class AppRouter extends RootStackRouter {
       page: ProfileRoute.page,
       path: '/profile',
       guards: [AuthGuard()],
-      title: (context, routeData) => 'Profil użytkownika'
+      title: (context, routeData) => 'Twój profil'
     ),
 
     // App settings
