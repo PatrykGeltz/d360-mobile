@@ -138,18 +138,32 @@ class _SideMenuState extends State<SideMenu> {
               }
             ),
           ),
-          Row(
-            children: [
-              const SizedBox(width: 16.0,),
-              Text('wersja: 0.0.1', style: TextStyle(
-                color: colors['primary']
-              ),),
-              const Expanded(child: SizedBox()),
-              IconButton(onPressed: (){
-                Provider.of<ThemeDataProvider>(context, listen: false).switchTheme();
-              }, icon: Icon(Provider.of<ThemeDataProvider>(context).getThemeIcon() , size: 45.0,)),
-              const SizedBox(width: 8.0,)
-            ],
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Text(
+                  'wersja: 0.0.1',
+                  style: TextStyle(
+                    color: colors['textSecondary']
+                  )
+                ),
+                const SizedBox(width: 8.0),
+                IconButton(
+                  onPressed: () {
+                    Provider.of<ThemeDataProvider>(context, listen: false).switchTheme();
+                  },
+                  padding: EdgeInsets.zero,
+                  icon: Icon(
+                    Provider.of<ThemeDataProvider>(context).getThemeIcon(),
+                    size: 48.0,
+                    color: colors['textPrimary'],
+                  )
+                ),
+              ],
+            ),
           )
         ],
       ),
