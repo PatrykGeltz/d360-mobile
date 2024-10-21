@@ -34,7 +34,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: ModuleRoute.page,
       path: '/members',
-      // guards: [AuthGuard()],
+      guards: [AuthGuard()],
       title: (context, routeData) => 'Członkowie',
       children: [
         AutoRoute(
