@@ -10,11 +10,8 @@ class MembersInvitesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Zaproszenia'),),
-      body: const Column(
-
-      ),
+    return const Center(
+      child: Text('Zaproszenia')
     );
   }
 }
