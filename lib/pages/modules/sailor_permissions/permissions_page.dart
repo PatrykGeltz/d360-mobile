@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mariner/providers/user_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:mariner/components/lists/header_title.dart';
 
 @RoutePage()
 class SailorPermissionsPermissionsPage extends StatelessWidget {
@@ -13,12 +14,10 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    final List<SailorPermission> SailorPermissions = [
+    final List<SailorPermission> sailorPermissions = [
       const SailorPermission(name: 'Jakaś Nazwa', type: ' Jakiś Typ' ),
       const SailorPermission(name: 'Trochę dłuższa nazwa', type: 'kolorowy typ', color: Colors.blue,),
       const SailorPermission(name: 'WWWWWWWWWWWWWFASFASF', type: 'CośtamCośtamTamTam',),
-
-
     ];
 
     return Scaffold(
@@ -52,12 +51,12 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: SailorPermissions.length,
+                  itemCount: sailorPermissions.length,
                   itemBuilder: (context, index){
                     return SailorPermission(
-                      name: SailorPermissions[index].name,
-                      type: SailorPermissions[index].type,
-                      color: SailorPermissions[index].color,
+                      name: sailorPermissions[index].name,
+                      type: sailorPermissions[index].type,
+                      color: sailorPermissions[index].color,
                     );
                   },
               ),
@@ -111,18 +110,5 @@ class SailorPermission extends StatelessWidget {
   }
 }
 
-class HeaderTitle extends StatelessWidget {
-  const HeaderTitle({super.key, required this.title});
 
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(title, textAlign: TextAlign.center,
-    style: const TextStyle(
-        fontWeight: FontWeight.w700,
-        fontSize: 20
-    ));
-  }
-}
 

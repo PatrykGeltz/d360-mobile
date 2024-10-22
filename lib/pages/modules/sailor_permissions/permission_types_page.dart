@@ -7,17 +7,26 @@ class SailorPermissionsPermissionTypesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Rodzaje patentów')
+    return const Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(child: Text('Rodzaj')),
+              Text('Opcje'),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
 
-class SailorPermission extends StatelessWidget {
-  const SailorPermission({super.key, required this.name, required this.type, this.typeColor});
+class SailorPermissionType extends StatelessWidget {
+  const SailorPermissionType({super.key, required this.name, this.typeColor});
 
   final String name;
-  final String type;
   final Color? typeColor;
 
   @override
