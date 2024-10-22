@@ -14,3 +14,17 @@ class SailorPermissionsPermissionTypesPage extends StatelessWidget {
     );
   }
 }
+
+class SailorPermission extends StatelessWidget {
+  const SailorPermission({super.key, required this.name, required this.type, this.typeColor});
+
+  final String name;
+  final String type;
+  final Color? typeColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+

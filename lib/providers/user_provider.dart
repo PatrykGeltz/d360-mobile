@@ -7,6 +7,7 @@ class UserProvider extends ChangeNotifier{
   String _role = 'Warta';
   String _img ="";
   String _email="";
+  bool _isAdmin = true;
 
   String get name => _name;
   String get surname => _surname;
@@ -14,6 +15,7 @@ class UserProvider extends ChangeNotifier{
   String get role => _role;
   String get avatarUrl => _img;
   String get email => _email;
+  bool get isAdmin => _isAdmin;
 
   String editedValue = '';
 
