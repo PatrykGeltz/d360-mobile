@@ -39,27 +39,36 @@ class ProfilePage extends StatelessWidget {
                   backgroundColor: Colors.grey, radius: 40.0,
                   backgroundImage: XFileImage(user.imagePath),
                 ),
-                Column(
-                  children: [
-                    TextButton(onPressed: () async {
-                        XFile? response = await picker.pickImage(source: ImageSource.gallery);
-                        userSet.setImagePath(response!);
-                      },
-                        style: TextButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-                          minimumSize: Size.zero
-                        ),
-                        child: const Text('Zmień zdjęcie')),
-                    Text('Limit 2mb ${user.imageError}',
-                      style: TextStyle(
-                        color: user.imageError == '' ? colors['primary'] : Colors.red
-                      ),
+
+                TextButton(onPressed: () async {
+                    XFile? response = await picker.pickImage(source: ImageSource.gallery);
+                    userSet.setImagePath(response!);
+                  },
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                      minimumSize: Size.zero
                     ),
-                  ],
-                ),
+                    child: const Text('Wybierz z galerii')),
+
+                TextButton(onPressed: () async {
+                  XFile? response = await picker.pickImage(source: ImageSource.camera);
+                  userSet.setImagePath(response!);
+                },
+                    style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                        minimumSize: Size.zero
+                    ),
+                    child: const Text('Zrób zdjęcie')),
+
               ],
 
             ),
+            // Text('Limit 8mb ${user.imageError}',
+            //   style: TextStyle(
+            //       color: user.imageError == '' ? colors['primary'] : Colors.red
+            //   ),
+            // ),
+
             UserData(fieldName: 'Nazwa użytkownika', data: user.nickname),
 
             Divider( color: colors['special'], ),

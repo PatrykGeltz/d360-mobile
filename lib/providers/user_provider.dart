@@ -28,11 +28,11 @@ class UserProvider extends ChangeNotifier{
   }
 
 
-  // 2 * 1038576 = 2mb
+  // 8 * 1038576 = 8mb
 
   void setImagePath(XFile value) async {
     Uint8List bytes = await value.readAsBytes();
-    if(bytes.length > 2 * 1048576) {
+    if(bytes.length > 8 * 1048576) {
       imageError = '- plik za duży';
       notifyListeners();
       return;
