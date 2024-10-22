@@ -48,6 +48,9 @@ import 'package:mariner/pages/modules/settings/settings_page.dart';
 // User profile
 import 'package:mariner/pages/profile/profile_page.dart';
 
+// Change password
+import 'package:mariner/pages/profile/auth/change_password_page.dart';
+
 // App settings
 import 'package:mariner/pages/app_settings/app_settings_page.dart';
 
@@ -223,6 +226,12 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: LogoutRoute.page,
       path: '/logout',
-    )
+    ),
+
+    // AutoRoute(
+    //   page: ChangePasswordRoute.page,
+    //   path: '/change_password',
+    //   guards: [AuthGuard()],
+    // )
   ];
 }
