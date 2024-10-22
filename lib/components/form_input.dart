@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:mariner/theme/colors.dart';
-
 class FormInput extends StatelessWidget {
   const FormInput({super.key, this.placeholder, this.obscureText, this.controller, this.onChanged});
 
@@ -12,8 +10,6 @@ class FormInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final colors = ThemeColors.of(context);
-
     return TextField(
       decoration: InputDecoration(
         constraints: const BoxConstraints.tightFor(

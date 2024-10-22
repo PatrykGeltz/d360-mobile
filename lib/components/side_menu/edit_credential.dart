@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mariner/components/members/user.dart';
-import 'package:mariner/providers/user_provider.dart';
-// import 'package:mariner/pages/side_menu/user_profile.dart';
-import 'package:mariner/theme/colors.dart';
 import 'package:provider/provider.dart';
+
+import 'package:mariner/theme/colors.dart';
+
+import 'package:mariner/providers/user_provider.dart';
 
 class EditCredential extends StatelessWidget {
   const EditCredential({super.key, required this.item});

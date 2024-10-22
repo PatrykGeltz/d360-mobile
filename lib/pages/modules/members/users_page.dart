@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
-import 'package:mariner/theme/colors.dart';
+import 'package:mariner/components/members/users_list.dart';
 
-import 'package:mariner/components/members/user.dart';
+import 'package:mariner/models/user_model.dart';
 
 @RoutePage()
 class MembersUsersPage extends StatelessWidget {
@@ -11,27 +11,28 @@ class MembersUsersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = ThemeColors.of(context);
-
-    return Padding(padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const User(
-            name: 'ra2nek',
-            phone: '+48 333 33 333',
-            pesel: '20337472',
-            email: 'ra4nek@gmail.com',
-          ),
-          Divider(color: colors['special'],),
-          const User(
-            name: 'Andrzej',
-            phone: '+55 242 422 22',
-            pesel: '24221432',
-          )
-        ],
+    const List<UserModel> users = [
+      UserModel(
+        nick: 'ra2nek',
+        pesel: '20337472325',
+        phone: '+48 333 333 333',
+        email: 'ra4nek@gmail.com',
       ),
+      UserModel(
+        nick: 'Andrzej',
+        pesel: '24221432531',
+        phone: '+55 242 422 222',
+      )
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: UsersList(
+        users: users,
+        onDelete: (index) {
+          print('Delete user: ${users[index].nick}');
+        }
+      )
     );
   }
 }

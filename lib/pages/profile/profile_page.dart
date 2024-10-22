@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:auto_route/auto_route.dart';
 import 'package:http_parser/http_parser.dart';
-import 'package:mariner/pages/profile/auth/change_password_page.dart';
 import 'package:mariner/providers/user_provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_cropper/image_cropper.dart';
 
+import 'package:mariner/providers/user_provider.dart';
 import 'package:mariner/theme/colors.dart';
 import 'package:mariner/components/side_menu/user_data.dart';
 import 'package:mariner/components/side_menu/edit_credential.dart';
@@ -22,7 +22,7 @@ class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
@@ -145,8 +145,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    final router = AutoRouter.of(context);
-
     final routeData = RouteData.of(context);
     final colors = ThemeColors.of(context);
     user = Provider.of<UserProvider>(context);
@@ -196,6 +194,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Divider(color: colors['special'],),
             Text('Zmień hasło'),
             ElevatedButton(onPressed: (){
+              final router = AutoRouter.of(context);
               router.replaceNamed('/change_password');
             }, child: Text('Test')),
             const Expanded(child: SizedBox()),
