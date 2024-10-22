@@ -19,31 +19,29 @@ class ModuleMenuPage extends StatelessWidget {
 
     final routes = kSectionRoutes[route] ?? [];
 
-    // final List buttons = kSubsections[route]?.toList() ?? const [SubsectionButton(icon: Icons.close, title: 'Brak podsekcji')];
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
         child: ListView.builder(
-          itemCount: routes.length,
+          itemCount: 2 * routes.length - 1,
           itemBuilder: (context, index) {
-            final route = routes[index];
+            final isDivider = index % 2 == 1;
 
-            return Column(
-              children: [
-                SubsectionButton(
-                  title: route.title,
-                  icon: route.icon,
-                  onPressed: () {
-                    final router = AutoRouter.of(context);
-                    print('Going to subsection with route: ${route.route}');
-                    router.pushNamed(route.route);
-                  },
-                ),
-                Divider(
-                  color: colors['special'],
-                )
-              ],
+            if (isDivider) {
+              return Divider(color: colors['special']);
+            }
+
+            final routeIndex = (index / 2).floor();
+            final route = routes[routeIndex];
+
+            return SubsectionButton(
+              title: route.title,
+              icon: route.icon,
+              onPressed: () {
+                final router = AutoRouter.of(context);
+                print('Going to subsection with route: ${route.route}');
+                router.pushNamed(route.route);
+              },
             );
           }
         )
