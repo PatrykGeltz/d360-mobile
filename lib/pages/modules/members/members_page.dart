@@ -1,9 +1,7 @@
-import 'dart:developer' as console;
-
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
-import 'package:mariner/components/members/users_list.dart';
+import 'package:mariner/components/members/member_list.dart';
 
 import 'package:mariner/models/user_model.dart';
 
@@ -32,7 +30,7 @@ class MembersUsersPage extends StatelessWidget {
       child: UsersList(
         users: users,
         onDelete: (index) {
-          console.log('Delete user: ${users[index].nick}');
+          print('Delete user: ${users[index].nick}');
         }
       )
     );
