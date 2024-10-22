@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:auto_route/auto_route.dart';
@@ -10,12 +11,13 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_cropper/image_cropper.dart';
 
-import 'package:mariner/providers/user_provider.dart';
 import 'package:mariner/theme/colors.dart';
+
 import 'package:mariner/components/side_menu/user_data.dart';
 import 'package:mariner/components/side_menu/edit_credential.dart';
 import 'package:mariner/components/subsection_button.dart';
-import 'package:auto_route/auto_route.dart';
+
+import 'package:mariner/providers/user_provider.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {

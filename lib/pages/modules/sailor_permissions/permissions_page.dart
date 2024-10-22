@@ -1,3 +1,5 @@
+import 'dart:developer' as console;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +38,7 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('add perm');
+          console.log('add perm');
         },
         child: const Icon(Icons.add)
       ),

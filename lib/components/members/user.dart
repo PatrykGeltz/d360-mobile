@@ -1,3 +1,5 @@
+import 'dart:developer' as console;
+
 import 'package:flutter/material.dart';
 
 import 'user_detail.dart';
@@ -14,7 +16,7 @@ class User extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('Pressed user: $name');
+        console.log('Pressed user: $name');
       },
       child: Row(
         children: [
@@ -32,7 +34,7 @@ class User extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              print('Delete user: $name');
+              console.log('Delete user: $name');
             },
             icon: const Icon(Icons.delete)
           )

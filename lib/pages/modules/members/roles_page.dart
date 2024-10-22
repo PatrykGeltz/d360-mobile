@@ -1,3 +1,5 @@
+import 'dart:developer' as console;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +35,7 @@ class MembersRolesPage extends StatelessWidget {
                           autofocus: true,
                           maxLength: 20,
                           onChanged: (value){
-                            print(value);
+                            console.log(value);
                           },
                         )
                       ],
@@ -62,8 +64,8 @@ class MembersRolesPage extends StatelessWidget {
               const SizedBox(width: 25.0),
               const Text('Role layout'),
               const Expanded(child: SizedBox()),
-              IconButton(onPressed: (){print('edit item');}, icon: const Icon(Icons.edit)),
-              IconButton(onPressed: (){print('delete item');}, icon: const Icon(Icons.delete)),
+              IconButton(onPressed: (){console.log('edit item');}, icon: const Icon(Icons.edit)),
+              IconButton(onPressed: (){console.log('delete item');}, icon: const Icon(Icons.delete)),
             ],
           ),
           Row(
@@ -73,8 +75,8 @@ class MembersRolesPage extends StatelessWidget {
               const SizedBox(width: 25.0),
               const Text('Role layout'),
               const Expanded(child: SizedBox()),
-              IconButton(onPressed: (){print('edit item');}, icon: const Icon(Icons.edit)),
-              IconButton(onPressed: (){print('delete item');}, icon: const Icon(Icons.delete)),
+              IconButton(onPressed: (){console.log('edit item');}, icon: const Icon(Icons.edit)),
+              IconButton(onPressed: (){console.log('delete item');}, icon: const Icon(Icons.delete)),
             ],
           ),
         ],
