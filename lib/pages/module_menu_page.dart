@@ -1,3 +1,5 @@
+import 'dart:developer' as console;
+
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -39,7 +41,7 @@ class ModuleMenuPage extends StatelessWidget {
               icon: route.icon,
               onPressed: () {
                 final router = AutoRouter.of(context);
-                print('Going to subsection with route: ${route.route}');
+                console.log('Going to subsection with route: ${route.route}');
                 router.pushNamed(route.route);
               },
             );

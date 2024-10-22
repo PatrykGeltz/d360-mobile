@@ -1,3 +1,5 @@
+import 'dart:developer' as console;
+
 import 'package:flutter/material.dart';
 import 'user_detail.dart';
 
@@ -23,11 +25,11 @@ class User extends StatelessWidget {
           Expanded(child: Text(name),),
 
           IconButton(onPressed: (){
-            print('approve request: $name');
+            console.log('approve request: $name');
           }, icon: const Icon(Icons.done) ),
 
           IconButton(onPressed: (){
-            print('delete request: $name');
+            console.log('delete request: $name');
           }, icon: const Icon(Icons.close) )
         ],
       ),

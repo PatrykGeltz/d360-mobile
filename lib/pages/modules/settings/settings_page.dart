@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class SettingsPage extends StatelessWidget {
-  static const String id = '/settings';
-
   const SettingsPage({super.key});
 
   @override

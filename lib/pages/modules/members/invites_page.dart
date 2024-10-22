@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class MembersInvitesPage extends StatelessWidget {
-  static const String id = '/members/invites';
-
   const MembersInvitesPage({super.key});
 
   @override

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class MarinaParkingSpacesPage extends StatelessWidget {
-  static const String id = '/marina/parking_spaces';
-
   const MarinaParkingSpacesPage({super.key});
 
   @override

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer' as console;
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -55,7 +56,7 @@ class _SideMenuState extends State<SideMenu> {
         throw Exception('Failed to load user data');
       }
     } catch (e) {
-      print(e);
+      console.log('Error', error: e);
     }
   }
   Future<void> _fetchAppVersion() async {
