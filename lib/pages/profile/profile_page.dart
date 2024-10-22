@@ -12,10 +12,8 @@ import 'package:image_cropper/image_cropper.dart';
 
 import 'package:mariner/providers/user_provider.dart';
 import 'package:mariner/theme/colors.dart';
-import 'package:mariner/components/side_menu/user_data.dart';
-import 'package:mariner/components/side_menu/edit_credential.dart';
-import 'package:mariner/components/subsection_button.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:mariner/components/subsection_button.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {
@@ -192,11 +190,15 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
             Divider(color: colors['special'],),
-            Text('Zmień hasło'),
-            ElevatedButton(onPressed: (){
+            const Text('Opcje', style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w700
+            ),),
+            SizedBox(height: 16.0,),
+            SubsectionButton(onPressed: (){
               final router = AutoRouter.of(context);
-              router.replaceNamed('/change_password');
-            }, child: Text('Test')),
+              router.pushNamed('/change_password');
+            },title: 'Zmień hasło', icon: Icons.lock),
             const Expanded(child: SizedBox()),
             ElevatedButton(
               onPressed: () {
