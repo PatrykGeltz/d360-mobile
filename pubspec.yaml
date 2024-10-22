@@ -14,8 +14,9 @@ dependencies:
   provider: ^5.0.0
   auto_route: ^9.2.2
   image_picker: ^1.1.2
+  http_parser: ^4.0.2
   cross_file_image: ^1.1.0
-  flutter_image_compress: ^2.3.0
+  image_cropper: ^8.0.2
   package_info_plus: ^8.1.0
 
 dev_dependencies:
