@@ -35,50 +35,33 @@ class ProfilePage extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.grey, radius: 40.0,
-                        backgroundImage: XFileImage(user.imagePath),
-                      ),
-                      TextButton(onPressed: () async {
-                          XFile? response = await picker.pickImage(source: ImageSource.gallery);
-                          userSet.setImagePath(response!);
-                        },
-                          style: TextButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-                            minimumSize: Size.zero
-                          ),
-                          child: const Text('Zmień zdjęcie')),
-                      Text('Limit 2mb ${user.imageError}',
-                        style: TextStyle(
-                          color: user.imageError == '' ? colors['primary'] : Colors.red
-                        ),
-                      )
-                    ],
-                  ),
+                CircleAvatar(
+                  backgroundColor: Colors.grey, radius: 40.0,
+                  backgroundImage: XFileImage(user.imagePath),
                 ),
-
                 Column(
                   children: [
-                    const Text('Nazwa użytkownika',),
-                    Row(
-                      children: [
-                        Text(user.nickname, style: const TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontSize: 20
-                        ),),
-                        IconButton(onPressed: (){
-                          showModalBottomSheet(context: context, builder: (context) => const EditCredential(item: 'Nazwa użytkownika'));
-                        }, icon: const Icon(Icons.edit))
-                      ],
+                    TextButton(onPressed: () async {
+                        XFile? response = await picker.pickImage(source: ImageSource.gallery);
+                        userSet.setImagePath(response!);
+                      },
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                          minimumSize: Size.zero
+                        ),
+                        child: const Text('Zmień zdjęcie')),
+                    Text('Limit 2mb ${user.imageError}',
+                      style: TextStyle(
+                        color: user.imageError == '' ? colors['primary'] : Colors.red
+                      ),
                     ),
                   ],
                 ),
-
               ],
+
             ),
+            UserData(fieldName: 'Nazwa użytkownika', data: user.nickname),
+
             Divider( color: colors['special'], ),
 
             UserData(
