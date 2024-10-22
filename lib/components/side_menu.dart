@@ -1,7 +1,11 @@
 import 'dart:convert';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mariner/providers/user_provider.dart';
+import 'package:mariner/theme/colors.dart';
+import 'package:mariner/models/side_menu_tile_model.dart';
+import 'package:mariner/theme/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -10,25 +14,27 @@ import 'package:mariner/theme/colors.dart';
 import 'package:mariner/theme/theme.dart';
 
 import 'package:mariner/models/side_menu_tile_model.dart';
-
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
 
   @override
-  State<SideMenu> createState() => _SideMenuState();
+  _SideMenuState createState() => _SideMenuState();
 }
 
 class _SideMenuState extends State<SideMenu> {
   String userName = '...';
   String userEmail = '...';
   String avatarUrl = '';
-
   String appVersion = '1.0.0';
+
+  late UserProvider user;
+  late UserProvider userSet;
 
   @override
   void initState() {
     super.initState();
     _fetchUserData();
+
     _fetchAppVersion();
   }
 
@@ -40,27 +46,22 @@ class _SideMenuState extends State<SideMenu> {
       final response = await http.get(Uri.parse(url), headers: {"Authorization": "Bearer $token"});
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        print(data);
+        
         setState(() {
-          userName = data['data']['name'] ?? 'No Name';
-          userEmail = data['data']['email'] ?? 'No Email';
-          avatarUrl = data['data']['avatar_photo'] ?? '';
+          Provider.of<UserProvider>(context, listen: false).setName(data['data']['name']??'');
+          Provider.of<UserProvider>(context, listen: false).setEmail(data['data']['email'] ?? '');
+          Provider.of<UserProvider>(context, listen: false).setAvatar(data['data']['avatar_photo'] ?? '');
         });
       } else {
         throw Exception('Failed to load user data');
       }
     } catch (e) {
-      setState(() {
-        userName = '';
-        userEmail = '';
-      });
+      print(e);
     }
   }
-
   Future<void> _fetchAppVersion() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
-    print(packageInfo);
 
     setState(() {
       appVersion = packageInfo.version;
@@ -88,6 +89,8 @@ class _SideMenuState extends State<SideMenu> {
     ];
 
     final colors = ThemeColors.of(context);
+    user = Provider.of<UserProvider>(context);
+    userSet = Provider.of<UserProvider>(context, listen: false);
 
     return Drawer(
       backgroundColor: colors['background'],
@@ -108,14 +111,15 @@ class _SideMenuState extends State<SideMenu> {
                     CircleAvatar(
                       radius: 24.0,
                       backgroundColor: colors['textSecondary'],
-                      backgroundImage: avatarUrl.isNotEmpty ? NetworkImage(avatarUrl) : null,
-                    ),
+                      backgroundImage: user.avatarUrl.isNotEmpty
+                        ? NetworkImage(user.avatarUrl)
+                        : const AssetImage('assets/images/logo.png'),                     ),
                     const SizedBox(width: 8.0),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          userName,
+                          user.name,
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 16.0,
@@ -123,7 +127,7 @@ class _SideMenuState extends State<SideMenu> {
                           ),
                         ),
                         Text(
-                          userEmail,
+                          user.email,
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 12.0,
@@ -150,7 +154,9 @@ class _SideMenuState extends State<SideMenu> {
                   leading: Icon(route.icon),
                   title: Text(route.title),
                   onTap: () {
-                    route.executeWith(context);
+                   
+                      route.executeWith(context);
+                    
                   },
                 );
               }
