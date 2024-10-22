@@ -48,6 +48,25 @@ class AppSettingsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ChangePasswordPage]
+class ChangePasswordRoute extends PageRouteInfo<void> {
+  const ChangePasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          ChangePasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChangePasswordRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ChangePasswordPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ContributionsContributionsPage]
 class ContributionsContributionsRoute extends PageRouteInfo<void> {
   const ContributionsContributionsRoute({List<PageRouteInfo>? children})

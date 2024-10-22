@@ -219,6 +219,12 @@ class AppRouter extends RootStackRouter {
     ),
 
     AutoRoute(
+      page: ChangePasswordRoute.page,
+      path: '/change_password',
+      guards: [AuthGuard()],
+    ),
+
+    AutoRoute(
       page: LoginRoute.page,
       path: '/login',
     ),
@@ -227,11 +233,5 @@ class AppRouter extends RootStackRouter {
       page: LogoutRoute.page,
       path: '/logout',
     ),
-
-    // AutoRoute(
-    //   page: ChangePasswordRoute.page,
-    //   path: '/change_password',
-    //   guards: [AuthGuard()],
-    // )
   ];
 }
