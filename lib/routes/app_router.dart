@@ -14,7 +14,7 @@ import 'package:mariner/pages/module_menu_page.dart';
 // Members module
 import 'package:mariner/pages/modules/members/module_page.dart';
 import 'package:mariner/pages/modules/members/menu_page.dart';
-import 'package:mariner/pages/modules/members/users_page.dart';
+import 'package:mariner/pages/modules/members/members_page.dart';
 import 'package:mariner/pages/modules/members/join_requests_page.dart';
 import 'package:mariner/pages/modules/members/statuses_page.dart';
 import 'package:mariner/pages/modules/members/roles_page.dart';
