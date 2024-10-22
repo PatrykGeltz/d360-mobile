@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:mariner/theme/colors.dart';
 
 @RoutePage()
 class SailorPermissionsPermissionsPage extends StatelessWidget {
@@ -10,8 +9,6 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = ThemeColors.of(context);
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 16.0),
