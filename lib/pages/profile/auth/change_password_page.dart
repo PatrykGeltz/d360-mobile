@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class ChangePasswordPage extends StatelessWidget {
-  static const String id = '/change_password';
   const ChangePasswordPage({super.key});
 
   @override

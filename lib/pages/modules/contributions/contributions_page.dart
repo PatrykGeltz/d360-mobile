@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class ContributionsContributionsPage extends StatelessWidget {
-  static const id = '/contributions/contributions';
   const ContributionsContributionsPage({super.key});
 
   @override

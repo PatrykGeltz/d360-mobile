@@ -4,8 +4,6 @@ import 'package:mariner/components/members/user_wants_to_join.dart';
 
 @RoutePage()
 class MembersJoinRequestsPage extends StatelessWidget {
-  static const String id = '/members/wants_to_join';
-
   const MembersJoinRequestsPage({super.key});
 
   @override

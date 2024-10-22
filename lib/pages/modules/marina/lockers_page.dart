@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class MarinaLockersPage extends StatelessWidget {
-  static const String id = '/marina/lockers';
-
   const MarinaLockersPage({super.key});
 
   @override

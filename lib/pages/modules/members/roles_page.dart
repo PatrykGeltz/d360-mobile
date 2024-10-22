@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class MembersRolesPage extends StatelessWidget {
-  static const String id = '/members/roles';
-
   const MembersRolesPage({super.key});
 
   @override

@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class SailorPermissionsPermissionsPage extends StatelessWidget {
-  static const String id = '/sailor_permissions/sailor_permissions';
-
   const SailorPermissionsPermissionsPage({super.key});
 
   @override

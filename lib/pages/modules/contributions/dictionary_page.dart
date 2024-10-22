@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class ContributionsDictionaryPage extends StatelessWidget {
-  static const String id = '/contributions/dictionary';
-  
   const ContributionsDictionaryPage({super.key});
 
   @override

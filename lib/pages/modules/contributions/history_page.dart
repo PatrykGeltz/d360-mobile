@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class ContributionsHistoryPage extends StatelessWidget {
-  static const String id = '/contributions/history';
-  
   const ContributionsHistoryPage({super.key});
 
   @override
