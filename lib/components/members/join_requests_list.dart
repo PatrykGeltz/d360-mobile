@@ -2,8 +2,7 @@ import 'dart:developer' as console;
 
 import 'package:flutter/material.dart';
 
-import 'package:mariner/components/members/join_request_popup.dart';
-import 'package:mariner/components/members/user_detail_popup.dart';
+import 'package:mariner/components/members/member_detail_popup.dart';
 
 import 'package:mariner/models/user_model.dart';
 
