@@ -13,6 +13,11 @@ import 'package:image_picker/image_picker.dart';
 import 'package:cross_file_image/cross_file_image.dart';
 import 'package:mariner/components/side_menu/edit_credential.dart';
 
+
+import 'package:permission_handler/permission_handler.dart';
+
+
+
 @RoutePage()
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -26,6 +31,16 @@ class ProfilePage extends StatelessWidget {
 
     final user = Provider.of<UserProvider>(context);
     final userSet = Provider.of<UserProvider>(context, listen: false);
+
+    Future galleryPermission () async {
+      if(await Permission.camera.request().isDenied){
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Row(children: [Icon(Icons.error, color: Colors.black,), Text('Brak permisji')],))
+        );
+        return false;
+      }
+      return true;
+    }
 
     return Scaffold(
       appBar: AppBar(title: Text(routeData.title(context)),),
@@ -42,6 +57,7 @@ class ProfilePage extends StatelessWidget {
 
                 Expanded(
                   child: TextButton(onPressed: () async {
+                      if(!await galleryPermission()) return;
                       XFile? response = await picker.pickImage(source: ImageSource.gallery);
                       userSet.setImagePath(response!);
                     },
@@ -49,11 +65,12 @@ class ProfilePage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
                         minimumSize: Size.zero,
                       ),
-                      child: const Text('Wybierz z galerii', )),
+                      child: const Text('Wybierz z galerii', textAlign: TextAlign.center,)),
                 ),
 
                 Expanded(
                   child: TextButton(onPressed: () async {
+                    if(!await galleryPermission()) return;
                     XFile? response = await picker.pickImage(source: ImageSource.camera);
                     userSet.setImagePath(response!);
                   },

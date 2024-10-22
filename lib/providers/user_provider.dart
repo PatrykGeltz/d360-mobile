@@ -17,7 +17,7 @@ class UserProvider extends ChangeNotifier{
   String get surname => _surname;
   String get pesel => _pesel;
   String get role => _role;
-  XFile get imagePath => _img ?? XFile('assets/images/logo.png');
+  XFile get imagePath => _img ?? XFile('');
 
   String imageError = '';
 
