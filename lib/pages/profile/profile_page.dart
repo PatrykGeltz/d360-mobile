@@ -40,25 +40,29 @@ class ProfilePage extends StatelessWidget {
                   backgroundImage: XFileImage(user.imagePath),
                 ),
 
-                TextButton(onPressed: () async {
-                    XFile? response = await picker.pickImage(source: ImageSource.gallery);
+                Expanded(
+                  child: TextButton(onPressed: () async {
+                      XFile? response = await picker.pickImage(source: ImageSource.gallery);
+                      userSet.setImagePath(response!);
+                    },
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                        minimumSize: Size.zero,
+                      ),
+                      child: const Text('Wybierz z galerii', )),
+                ),
+
+                Expanded(
+                  child: TextButton(onPressed: () async {
+                    XFile? response = await picker.pickImage(source: ImageSource.camera);
                     userSet.setImagePath(response!);
                   },
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-                      minimumSize: Size.zero
-                    ),
-                    child: const Text('Wybierz z galerii')),
-
-                TextButton(onPressed: () async {
-                  XFile? response = await picker.pickImage(source: ImageSource.camera);
-                  userSet.setImagePath(response!);
-                },
-                    style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-                        minimumSize: Size.zero
-                    ),
-                    child: const Text('Zrób zdjęcie')),
+                      style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                          minimumSize: Size.zero
+                      ),
+                      child: const Text('Zrób zdjęcie')),
+                ),
 
               ],
 
