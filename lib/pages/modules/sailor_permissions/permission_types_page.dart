@@ -1,37 +1,104 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mariner/components/lists/header_title.dart';
+import 'package:mariner/providers/user_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:mariner/components/lists/FAB.dart';
+import 'package:mariner/theme/colors.dart';
 
 @RoutePage()
-class SailorPermissionsPermissionTypesPage extends StatelessWidget {
+class SailorPermissionsPermissionTypesPage extends StatefulWidget {
   const SailorPermissionsPermissionTypesPage({super.key});
 
   @override
+  State<SailorPermissionsPermissionTypesPage> createState() => _SailorPermissionsPermissionTypesPageState();
+}
+
+class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissionsPermissionTypesPage> {
+  List<SailorPermissionType> permissionsTypes = [
+    const SailorPermissionType(name: 'Coscos',),
+    const SailorPermissionType(name: 'Wiritirirt'),
+    const SailorPermissionType(name: 'Wiritirirt', color: Colors.redAccent,)
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(child: Text('Rodzaj')),
-              Text('Opcje'),
-            ],
-          )
-        ],
+
+    final colors = ThemeColors.of(context);
+
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          children: [
+            const Row(
+              children: [
+                Expanded(child: HeaderTitle(title: 'Rodzaj')),
+                HeaderTitle(title: 'Opcje'),
+                SizedBox(width: 16.0,)
+              ],
+            ),
+            Expanded(child: ListView.builder(
+                itemCount: permissionsTypes.length,
+                itemBuilder: (context, index){
+                  return permissionsTypes[index];
+                }
+            ))
+          ],
+        ),
       ),
+      floatingActionButton: FAB( onPressed: (){
+        showModalBottomSheet(context: context, builder: (context){
+          return Container(
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0),  ),
+              color: colors['secondary'],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const HeaderTitle(title: 'Dodaj nowy rodzaj'),
+                TextField(onChanged: (value){
+                  Provider.of<UserProvider>(context, listen: false).editedValue = value;
+                },),
+                ElevatedButton(onPressed: (){
+                  setState(() {
+                    permissionsTypes.add(SailorPermissionType(name: Provider.of<UserProvider>(context, listen: false).editedValue));
+                  });
+                  Provider.of<UserProvider>(context, listen: false).editedValue = '';
+                  Navigator.pop(context);
+                }, child: const Text('Dodaj'))
+              ],
+            ),
+
+          );
+        } );
+      } )
     );
   }
 }
 
 class SailorPermissionType extends StatelessWidget {
-  const SailorPermissionType({super.key, required this.name, this.typeColor});
+  const SailorPermissionType({super.key, required this.name, this.color});
 
   final String name;
-  final Color? typeColor;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Row(
+      children: [
+        Expanded(child: Text(name, style: TextStyle(color: color),)),
+        IconButton(onPressed: () {
+          if(!Provider.of<UserProvider>(context).isAdmin) return;
+
+        }, icon: const Icon(Icons.edit), ),
+        IconButton(onPressed: () {
+          if(!Provider.of<UserProvider>(context).isAdmin) return;
+        }, icon: const Icon(Icons.delete)),
+      ],
+    );
   }
 }
 
