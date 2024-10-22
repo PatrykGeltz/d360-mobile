@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 import 'package:mariner/routes/guards/auth_guard.dart';
+import 'package:mariner/routes/guards/permission_guard.dart';
 
 import 'package:mariner/pages/main_page.dart';
 import 'package:mariner/pages/login_page.dart';
@@ -70,7 +71,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: MembersRoute.page,
       path: '/members',
-      guards: [AuthGuard()],
+      guards: [AuthGuard(), PermissionGuard()],
       title: (context, routeData) => 'Członkowie',
       children: [
         AutoRoute(
@@ -105,7 +106,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: ContributionsRoute.page,
       path: '/contributions',
-      guards: [AuthGuard()],
+      guards: [AuthGuard(), PermissionGuard()],
       title: (context, routeData) => 'Składki',
       children: [
         AutoRoute(
@@ -132,7 +133,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: SailorPermissionsRoute.page,
       path: '/sailor_permissions',
-      guards: [AuthGuard()],
+      guards: [AuthGuard(), PermissionGuard()],
       title: (context, routeData) => 'Uprawnienia żeglarskie',
       children: [
         AutoRoute(
@@ -155,7 +156,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: MarinaRoute.page,
       path: '/marina',
-      guards: [AuthGuard()],
+      guards: [AuthGuard(), PermissionGuard()],
       title: (context, routeData) => 'Marina',
       children: [
         AutoRoute(
@@ -178,7 +179,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: StatusesRoute.page,
       path: '/statuses',
-      guards: [AuthGuard()],
+      guards: [AuthGuard(), PermissionGuard()],
       title: (context, routeData) => 'Statusy'
     ),
 
@@ -186,7 +187,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
         page: SettingsRoute.page,
         path: '/settings',
-        guards: [AuthGuard()],
+        guards: [AuthGuard(), PermissionGuard()],
         title: (context, routeData) => 'Ustawienia klubu'
     ),
 
