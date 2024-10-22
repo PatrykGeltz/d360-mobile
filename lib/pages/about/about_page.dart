@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:mariner/theme/theme.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class AboutPage extends StatelessWidget {
@@ -15,6 +17,8 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final routeData = RouteData.of(context);
 
+    final logoPath = Theme.of(context).brightness == Brightness.light ? 'assets/images/logo.png' : 'assets/images/logo_dk.png';
+
     return Scaffold(
       appBar: AppBar(
         title: Text(routeData.title(context)),
@@ -25,7 +29,7 @@ class AboutPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Image.asset(
-                'assets/images/logo.png',
+                logoPath,
                 width: 128.0,
               ),
               const SizedBox(height: 8.0),

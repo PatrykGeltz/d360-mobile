@@ -70,7 +70,7 @@ class ProfilePage extends StatelessWidget {
                             fontSize: 20
                         ),),
                         IconButton(onPressed: (){
-                          showModalBottomSheet(context: context, builder: (context) => EditCredential(item: 'Nazwa użytkownika'));
+                          showModalBottomSheet(context: context, builder: (context) => const EditCredential(item: 'Nazwa użytkownika'));
                         }, icon: const Icon(Icons.edit))
                       ],
                     ),
