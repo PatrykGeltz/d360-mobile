@@ -13,7 +13,7 @@ const Map<String, List<SectionRouteModel>> kSectionRoutes = {
   '/contributions': [
     SectionRouteModel(title: 'Skladki', icon: Icons.monetization_on, route: '/contributions/contributions'),
     SectionRouteModel(title: 'Historia składek', icon: Icons.history, route: '/contributions/history'),
-    SectionRouteModel(title: 'Slownik opłat', icon: Icons.pending_actions, route: '/contributions/dictionary')
+    SectionRouteModel(title: 'Słownik opłat', icon: Icons.pending_actions, route: '/contributions/dictionary')
   ],
   '/marina': [
     SectionRouteModel(title: 'Miejsca postojowe', icon: Icons.anchor, route: '/marina/parking_spaces'),
@@ -21,6 +21,6 @@ const Map<String, List<SectionRouteModel>> kSectionRoutes = {
   ],
   '/sailor_permissions': [
     SectionRouteModel(title: 'Patenty', icon: Icons.badge, route: '/sailor_permissions/permissions'),
-    SectionRouteModel(title: 'Rodzaje patentow', icon: Icons.document_scanner, route: '/sailor_permissions/permission_types')
+    SectionRouteModel(title: 'Rodzaje patentów', icon: Icons.document_scanner, route: '/sailor_permissions/permission_types')
   ],
 };
