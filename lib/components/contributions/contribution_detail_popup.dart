@@ -21,17 +21,17 @@ class ContributionDetailPopup extends StatelessWidget {
       actionsBuilder: (context) => [
         ElevatedButton(
             onPressed: () {
-              if (onDelete != null) onDelete!();
-
               PopupAlert.close(context);
+
+              if (onDelete != null) onDelete!();
             },
             child: const Text('Usuń')
         ),
         ElevatedButton(
           onPressed: () {
-            if (onEdit != null) onEdit!();
-
             PopupAlert.close(context);
+
+            if (onEdit != null) onEdit!();
           },
           child: const Text('Edytuj')
         ),
