@@ -130,8 +130,31 @@ class SailorPermission extends StatelessWidget {
           showDialog(context: context, builder: (BuildContext context){
             return PopupAlert(
               title: 'Szczegóły',
-              confirmText: Provider.of<UserProvider>(context).isAdmin ? 'Edytuj' : null,
-              cancelText: Provider.of<UserProvider>(context).isAdmin ? 'Usuń' : null,
+              actionsBuilder: (context) {
+                return [
+                  if (Provider.of<UserProvider>(context).isAdmin) ...[
+                    ElevatedButton(
+                      onPressed: () {
+                        PopupAlert.close(context);
+                      },
+                      child: const Text('Usuń'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        PopupAlert.close(context);
+                      },
+                      child: const Text('Edytuj'),
+                    ),
+                  ] else ...[
+                    TextButton(
+                      onPressed: () {
+                        PopupAlert.close(context);
+                      },
+                      child: const Text('Zamknij'),
+                    ),
+                  ],
+                ];
+              },
 
               children: [
                 Text('Nazwa: $name'),
