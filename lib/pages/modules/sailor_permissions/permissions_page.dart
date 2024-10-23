@@ -30,6 +30,7 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
         padding: const EdgeInsets.only(left: 16.0, top: 16.0),
         child: Column(
           children: [
+            // Headers
             const Row(
               children: [
                 const Expanded(
@@ -39,22 +40,10 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
                     child: HeaderTitle(title: 'Typ')
                 ),
                 SizedBox(width: 40,)
-                // Builder(builder: (context){
-                //   if(Provider.of<UserProvider>(context).isAdmin){
-                //     return const Row(
-                //       children: [
-                //         SizedBox(width: 8.0,),
-                //         HeaderTitle(title: 'Opcje'),
-                //         SizedBox(width: 24.0)
-                //       ],
-                //     );
-                //   }
-                //   return SizedBox();
-                //   }
-                // )
-
               ],
             ),
+
+            // List builder
             Expanded(
               child: ListView.builder(
                   itemCount: sailorPermissions.length,
@@ -69,6 +58,8 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
       ),
       floatingActionButton: FAB(onPressed: (){
         showModalBottomSheet(context: context, builder: (context){
+
+          // TODO: Create component of bottom sheet
           return Container(
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
@@ -134,21 +125,6 @@ class SailorPermission extends StatelessWidget {
               color: color,
               overflow: TextOverflow.ellipsis
             ))),
-
-        // Builder(builder: (context){
-        //   if(!Provider.of<UserProvider>(context, listen: false).isAdmin) return const SizedBox(height: 48.0,);
-        //   return Row(
-        //     children: [
-        //       IconButton(onPressed: () {
-        //         if(!Provider.of<UserProvider>(context, listen: false).isAdmin) return;
-        //
-        //       }, icon: const Icon(Icons.edit), ),
-        //       IconButton(onPressed: () {
-        //         if(!Provider.of<UserProvider>(context, listen: false).isAdmin) return;
-        //       }, icon: const Icon(Icons.delete)),
-        //     ],
-        //     );
-        // } )
 
         IconButton(onPressed: (){
           showDialog(context: context, builder: (BuildContext context){

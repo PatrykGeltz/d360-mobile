@@ -32,13 +32,15 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
         padding: const EdgeInsets.only(top: 24.0, left: 24.0, right: 16.0),
         child: Column(
           children: [
-            const Row(
-              children: [
-                Expanded(child: HeaderTitle(title: 'Rodzaj')),
-                // HeaderTitle(title: 'Opcje'),
-                // SizedBox(width: 16.0,)
-              ],
-            ),
+            // Header
+
+            // const Row(
+            //   children: [
+            //     Expanded(child: HeaderTitle(title: 'Rodzaj')),
+            //     // HeaderTitle(title: 'Opcje'),
+            //     // SizedBox(width: 16.0,)
+            //   ],
+            // ),
             Expanded(child: ListView.builder(
                 itemCount: permissionsTypes.length,
                 itemBuilder: (context, index){
@@ -91,13 +93,6 @@ class SailorPermissionType extends StatelessWidget {
     return Row(
       children: [
         Expanded(child: Text(name, style: TextStyle(color: color),)),
-        // IconButton(onPressed: () {
-        //   if(!Provider.of<UserProvider>(context).isAdmin) return;
-        //
-        // }, icon: const Icon(Icons.edit), ),
-        // IconButton(onPressed: () {
-        //   if(!Provider.of<UserProvider>(context).isAdmin) return;
-        // }, icon: const Icon(Icons.delete)),
         IconButton(onPressed: (){
           showDialog(context: context, builder: (BuildContext context){
             return PopupAlert(
