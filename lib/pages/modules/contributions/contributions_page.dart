@@ -1,3 +1,5 @@
+import 'dart:developer' as console;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -50,9 +52,16 @@ class ContributionsContributionsPage extends StatelessWidget {
       ),
     ];
 
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: ContributionsList(contributions: contributions)
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: ContributionsList(
+        contributions: contributions,
+        onDelete: (index) {
+          final contribution = contributions[index];
+
+          console.log('Delete contribution "${contribution.name}"');
+        },
+      )
     );
   }
 }
