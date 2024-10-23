@@ -29,7 +29,6 @@ class ContributionHistoryDetailPopup extends StatelessWidget {
         Text('Data pobrania: ${contributionHistory.chargedAt}'),
         const SizedBox(height: 8.0),
         Text('Pobrano od: ${contributionHistory.membersChargedCount} członków'),
-        const SizedBox(height: 8.0),
       ],
     );
   }
