@@ -53,7 +53,9 @@ class _LabeledCheckboxState extends State<LabeledCheckbox> {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
+        const SizedBox(height: 42.0), // Set row height
         Checkbox(
+          visualDensity: const VisualDensity(horizontal: -4.0, vertical: -4.0),
           value: widget.controller.value,
           onChanged: (newValue) {
             if (newValue != null) {

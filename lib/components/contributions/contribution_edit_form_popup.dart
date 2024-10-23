@@ -20,6 +20,9 @@ class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _billingAmount = TextEditingController();
   final TextEditingController _startDate = TextEditingController();
+  final CheckboxController _isForJunior = CheckboxController();
+  final CheckboxController _isActive = CheckboxController();
+  final CheckboxController _isAdditional = CheckboxController();
 
   @override
   void initState() {
@@ -30,6 +33,9 @@ class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
     _name.text = contribution.name;
     _billingAmount.text = contribution.billingAmount.toStringAsFixed(2);
     _startDate.text = contribution.startDate;
+    _isForJunior.value = contribution.isForJunior;
+    _isActive.value = contribution.isActive;
+    _isAdditional.value = contribution.isAdditional;
   }
 
   @override
@@ -76,9 +82,17 @@ class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
           label: 'Data rozpoczęcia',
         ),
         LabeledCheckbox(
-          controller: CheckboxController(),
+          controller: _isForJunior,
           label: 'Dla juniora',
-        )
+        ),
+        LabeledCheckbox(
+          controller: _isActive,
+          label: 'Aktywna',
+        ),
+        LabeledCheckbox(
+          controller: _isAdditional,
+          label: 'Dodatkowa',
+        ),
       ],
     );
   }
