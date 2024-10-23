@@ -9,12 +9,6 @@ import 'package:mariner/models/contribution_model.dart';
 class ContributionsContributionsPage extends StatelessWidget {
   const ContributionsContributionsPage({super.key});
 
-  String _limitTextLength(String text, int limit) {
-    if (text.length <= limit - 3) return text;
-
-    return '${text.substring(0, limit - 3).trim()}...';
-  }
-
   @override
   Widget build(BuildContext context) {
     const List<String> lines = [
