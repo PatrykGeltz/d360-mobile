@@ -32,6 +32,7 @@ import 'package:mariner/pages/modules/sailor_permissions/module_page.dart';
 import 'package:mariner/pages/modules/sailor_permissions/menu_page.dart';
 import 'package:mariner/pages/modules/sailor_permissions/permissions_page.dart';
 import 'package:mariner/pages/modules/sailor_permissions/permission_types_page.dart';
+import 'package:mariner/pages/modules/sailor_permissions/member_permissions_page.dart';
 
 // Marina module
 import 'package:mariner/pages/modules/marina/module_page.dart';
@@ -152,6 +153,10 @@ class AppRouter extends RootStackRouter {
             page: SailorPermissionsPermissionTypesRoute.page,
             path: 'permission_types'
         ),
+        // AutoRoute(
+        //     page: SailorPermissionsMemberPermissionsPage.page,
+        //     path: 'member_permissions'
+        // )
       ]
     ),
 
