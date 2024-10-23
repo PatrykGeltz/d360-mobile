@@ -61,6 +61,11 @@ class ContributionsContributionsPage extends StatelessWidget {
 
           console.log('Delete contribution "${contribution.name}"');
         },
+        onEdit: (index, newContribution) {
+          final contribution = contributions[index];
+
+          console.log('Edited contribution "${contribution.name}"');
+        },
       )
     );
   }
