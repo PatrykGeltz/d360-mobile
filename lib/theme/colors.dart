@@ -14,7 +14,9 @@ Map<String, Color> kThemeColorsLight = {
   'special': const HSLColor.fromAHSL(1.0, 220.0, 0.5, 0.8).toColor(),
   'textPrimary': const HSLColor.fromAHSL(1.0, 195.0, 0.75, 0.1).toColor(),
   'textSecondary': const HSLColor.fromAHSL(1.0, 195.0, 0.25, 0.5).toColor(),
-  'background': const HSLColor.fromAHSL(1.0, 195.0, 0.75, 0.9).toColor()
+  'background': const HSLColor.fromAHSL(1.0, 195.0, 0.75, 0.9).toColor(),
+  'danger': const HSLColor.fromAHSL(1.0, 0, 1, .65).toColor(),
+  'textDanger': const HSLColor.fromAHSL(1.0, 0, 1, .75).toColor(),
 };
 
 Map<String, Color> kThemeColorsDark = {
@@ -23,7 +25,9 @@ Map<String, Color> kThemeColorsDark = {
   'special': const HSLColor.fromAHSL(1.0, 30.0, 0.25, 0.75).toColor(),
   'textPrimary': const HSLColor.fromAHSL(1.0, 195.0, 1.0, 0.9).toColor(),
   'textSecondary': const HSLColor.fromAHSL(1.0, 195.0, 0.25, 0.5).toColor(),
-  'background': const HSLColor.fromAHSL(1.0, 195.0, 0.75, 0.15).toColor()
+  'background': const HSLColor.fromAHSL(1.0, 195.0, 0.75, 0.15).toColor(),
+  'danger': const HSLColor.fromAHSL(1.0, 0, 1, .45).toColor(),
+  'textDanger': const HSLColor.fromAHSL(1.0, 0, 1, .55).toColor(),
 };
 
 // const Map<String, Color> kThemeColorsLight = {
