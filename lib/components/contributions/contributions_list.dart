@@ -4,14 +4,16 @@ import 'package:mariner/components/module/popup_alert.dart';
 import 'package:mariner/theme/colors.dart';
 
 import 'package:mariner/components/contributions/contribution_detail_popup.dart';
+import 'package:mariner/components/contributions/contribution_edit_form_popup.dart';
 
 import 'package:mariner/models/contribution_model.dart';
 
 class ContributionsList extends StatelessWidget {
-  const ContributionsList({super.key, required this.contributions, this.onDelete});
+  const ContributionsList({super.key, required this.contributions, this.onDelete, this.onEdit});
 
   final List<ContributionModel> contributions;
   final Function(int)? onDelete;
+  final Function(int, ContributionModel)? onEdit;
 
   String _limitTextLength(String text, int limit) {
     if (text.length <= limit - 3) return text;
@@ -73,7 +75,17 @@ class ContributionsList extends StatelessWidget {
                           )
                         );
                       },
-                      onEdit: () {},
+                      onEdit: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => ContributionEditFormPopup(
+                            contribution: contribution,
+                            onSuccess: (newContribution) {
+                              if (onEdit != null) onEdit!(index, newContribution);
+                            }
+                          )
+                        );
+                      },
                     )
                   );
                 },
