@@ -11,18 +11,6 @@ class ContributionsContributionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const List<String> lines = [
-      'Właściwości składki',
-      '',
-      'id',
-      'nazwa',
-      'kwota',
-      'czy jest dla juniora',
-      'data rozpoczęcia',
-      'czy jest aktywna',
-      'czy jest dodatkowa',
-    ];
-
     const List<ContributionModel> contributions = [
       ContributionModel(
         id: 1,
