@@ -16,10 +16,24 @@ class JoinRequestPopup extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupAlert(
       title: 'Prośba dołączenia',
-      confirmText: 'Akceptuj',
-      cancelText: 'Odrzuć',
-      onConfirm: onAccept != null ? () => onAccept!() : null,
-      onCancel: onReject != null ? () => onReject!() : null,
+      actionsBuilder: (context) => [
+        TextButton(
+          onPressed: () {
+            if (onReject != null) onReject!();
+
+            PopupAlert.close(context);
+          },
+          child: const Text('Odrzuć')
+        ),
+        ElevatedButton(
+            onPressed: () {
+              if (onAccept != null) onAccept!();
+
+              PopupAlert.close(context);
+            },
+            child: const Text('Akceptuj')
+        ),
+      ],
       children: <Widget>[
         Text('Nick: $nick'),
         const SizedBox(height: 8.0),

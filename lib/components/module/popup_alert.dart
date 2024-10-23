@@ -6,18 +6,16 @@ class PopupAlert extends StatelessWidget {
     super.key,
     required this.title,
     required this.children,
-    this.confirmText,
-    this.cancelText,
-    this.onConfirm,
-    this.onCancel,
+    required this.actionsBuilder,
   });
 
   final String title;
   final List<Widget> children;
-  final String? confirmText; // Optional confirm button text
-  final String? cancelText;  // Optional cancel button text
-  final VoidCallback? onConfirm; // Optional confirm action
-  final VoidCallback? onCancel;  // Optional cancel action
+  final List<Widget> Function(BuildContext) actionsBuilder;
+
+  static close(context) {
+    Navigator.of(context).pop();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,38 +29,7 @@ class PopupAlert extends StatelessWidget {
           children: children,
         ),
       ),
-      actions: <Widget>[
-        // Optional Cancel Button
-        if (cancelText != null)
-          TextButton(
-            child: Text(cancelText!),
-            onPressed: () {
-              if (onCancel != null) {
-                onCancel!(); // Call custom onCancel handler
-              }
-              Navigator.of(context).pop();
-            },
-          ),
-        // Optional Confirm Button
-        if (confirmText != null)
-          ElevatedButton(
-            child: Text(confirmText!),
-            onPressed: () {
-              if (onConfirm != null) {
-                onConfirm!(); // Call custom onConfirm handler
-              }
-              Navigator.of(context).pop(); // Close the dialog
-            },
-          ),
-        // Default Close Button if no confirm/cancel provided
-        if (confirmText == null && cancelText == null)
-          TextButton(
-            child: const Text('Zamknij'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-      ],
+      actions: actionsBuilder(context),
     );
   }
 }

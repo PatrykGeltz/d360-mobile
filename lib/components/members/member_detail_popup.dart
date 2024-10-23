@@ -14,6 +14,14 @@ class UserDetailPopup extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupAlert(
       title: 'Szczegóły',
+      actionsBuilder: (context) => [
+        TextButton(
+            onPressed: () {
+              PopupAlert.close(context);
+            },
+            child: const Text('Zamknij')
+        )
+      ],
       children: <Widget>[
         Text('Nick: $nick'),
         const SizedBox(height: 8.0),
@@ -22,7 +30,7 @@ class UserDetailPopup extends StatelessWidget {
         Text('E-mail: ${email ?? 'brak'}'),
         const SizedBox(height: 8.0),
         Text('Nr tel.: ${phone ?? 'brak'}'),
-      ]
+      ],
     );
   }
 }

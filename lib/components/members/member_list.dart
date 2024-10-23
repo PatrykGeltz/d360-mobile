@@ -44,11 +44,21 @@ class UsersList extends StatelessWidget {
                       context: context,
                       builder: (context) => PopupAlert(
                         title: 'Potwierdzenie usunięcia',
-                        confirmText: 'Tak',
-                        cancelText: 'Nie',
-                        onConfirm: () {
-                          onDelete!(index);
-                        },
+                        actionsBuilder: (context) => [
+                          TextButton(
+                            onPressed: () {
+                              PopupAlert.close(context);
+                            },
+                            child: const Text('Nie')
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              PopupAlert.close(context);
+                              onDelete!(index);
+                            },
+                            child: const Text('Tak')
+                          ),
+                        ],
                         children: <Widget>[
                           Text('Czy na pewno chcesz usunąć użytkownika o nazwie "${user.nick}"?')
                         ],
