@@ -12,6 +12,9 @@ final ThemeData lightTheme = ThemeData(
     backgroundColor: lightColors['primary']
   ),
   scaffoldBackgroundColor: lightColors['background'],
+
+  // Input styles
+
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           backgroundColor: lightColors['primary'],
@@ -41,9 +44,54 @@ final ThemeData lightTheme = ThemeData(
       )
   ),
 
+    inputDecorationTheme: InputDecorationTheme(
+      enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: lightColors['textPrimary'],
+        ),
+      ),
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: lightColors['textSecondary'] ?? Colors.transparent,
+          width: 2.0,
+        ),
+      ),
+      disabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: lightColors['textPrimary'] ?? Colors.transparent,
+        ),
+      ),
+      errorBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: lightColors['danger'],
+          width: 2.0,
+        ),
+      ),
+      focusedErrorBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: lightColors['danger'],
+          width: 2.0,
+        ),
+      ),
+      labelStyle: TextStyle(
+        color: lightColors['textPrimary'],
+      ),
+      hintStyle: TextStyle(
+        color: lightColors['textSecondary'],
+      ),
+
+    ),
+
   floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: lightColors['primary']
+  ),
+
+  checkboxTheme: CheckboxThemeData(
+    fillColor: WidgetStatePropertyAll(lightColors['primary']),
+    checkColor: WidgetStatePropertyAll(lightColors['textPrimary']),
   )
+
+
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -52,6 +100,8 @@ final ThemeData darkTheme = ThemeData(
     backgroundColor: darkColors['primary']
   ),
   scaffoldBackgroundColor: darkColors['background'],
+
+  // Style of inputs
 
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -62,12 +112,14 @@ final ThemeData darkTheme = ThemeData(
         disabledBackgroundColor: darkColors['secondary']
       )
   ),
+
   textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
           foregroundColor: darkColors['textPrimary'],
           disabledForegroundColor: darkColors['textSecondary']
       )
   ),
+
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: darkColors['textPrimary'],
@@ -80,9 +132,53 @@ final ThemeData darkTheme = ThemeData(
     )
   ),
 
-  floatingActionButtonTheme: FloatingActionButtonThemeData(
+  inputDecorationTheme: InputDecorationTheme(
+    enabledBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: darkColors['textPrimary'],
+      ),
+    ),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: darkColors['textSecondary'] ?? Colors.transparent,
+        width: 2.0,
+      ),
+    ),
+    disabledBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: darkColors['textPrimary'] ?? Colors.transparent,
+      ),
+    ),
+    errorBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: darkColors['danger'],
+        width: 2.0,
+      ),
+    ),
+    focusedErrorBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: darkColors['danger'],
+        width: 2.0,
+      ),
+    ),
+    labelStyle: TextStyle(
+      color: darkColors['textPrimary'],
+    ),
+    hintStyle: TextStyle(
+      color: darkColors['textSecondary'],
+    ),
+
+  ),
+
+
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
     backgroundColor: darkColors['primary']
   ),
+
+  checkboxTheme: CheckboxThemeData(
+    fillColor: WidgetStatePropertyAll(darkColors['primary']),
+    checkColor: WidgetStatePropertyAll(darkColors['textPrimary']),
+  )
 
 );
 
