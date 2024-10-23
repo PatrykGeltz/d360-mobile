@@ -40,7 +40,7 @@ class TextInput extends StatelessWidget {
         hintText: placeholder,
         labelText: label,
         hintStyle: TextStyle(color: colors['textSecondary']),
-        labelStyle: TextStyle(color: colors['textPrimary']),
+        labelStyle: TextStyle(color: colors['textSecondary']),
 
         // Default underline border
         enabledBorder: UnderlineInputBorder(

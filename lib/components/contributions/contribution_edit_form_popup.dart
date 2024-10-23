@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:mariner/components/module/popup_alert.dart';
 import 'package:mariner/components/module/text_input.dart';
+import 'package:mariner/components/module/labeled_checkbox.dart';
 
 import 'package:mariner/models/contribution_model.dart';
 
@@ -18,6 +19,7 @@ class ContributionEditFormPopup extends StatefulWidget {
 class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _billingAmount = TextEditingController();
+  final TextEditingController _startDate = TextEditingController();
 
   @override
   void initState() {
@@ -27,6 +29,7 @@ class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
 
     _name.text = contribution.name;
     _billingAmount.text = contribution.billingAmount.toStringAsFixed(2);
+    _startDate.text = contribution.startDate;
   }
 
   @override
@@ -68,6 +71,14 @@ class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
           label: 'Kwota',
           type: TextInputType.number,
         ),
+        TextInput(
+          controller: _startDate,
+          label: 'Data rozpoczęcia',
+        ),
+        LabeledCheckbox(
+          controller: CheckboxController(),
+          label: 'Dla juniora',
+        )
       ],
     );
   }
