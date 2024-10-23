@@ -21,6 +21,7 @@ const Map<String, List<SectionRouteModel>> kSectionRoutes = {
   ],
   '/sailor_permissions': [
     SectionRouteModel(title: 'Patenty', icon: Icons.badge, route: '/sailor_permissions/permissions'),
-    SectionRouteModel(title: 'Rodzaje patentów', icon: Icons.document_scanner, route: '/sailor_permissions/permission_types')
+    SectionRouteModel(title: 'Rodzaje patentów', icon: Icons.document_scanner, route: '/sailor_permissions/permission_types'),
+    SectionRouteModel(title: 'Moje uprawnienia', icon: Icons.document_scanner, route: '/sailor_permissions/member_permissions')
   ],
 };

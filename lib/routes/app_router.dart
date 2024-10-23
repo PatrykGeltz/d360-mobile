@@ -153,10 +153,10 @@ class AppRouter extends RootStackRouter {
             page: SailorPermissionsPermissionTypesRoute.page,
             path: 'permission_types'
         ),
-        // AutoRoute(
-        //     page: SailorPermissionsMemberPermissionsPage.page,
-        //     path: 'member_permissions'
-        // )
+        AutoRoute(
+            page: SailorPermissionsMemberPermissionsRoute.page,
+            path: 'member_permissions'
+        ),
       ]
     ),
 
