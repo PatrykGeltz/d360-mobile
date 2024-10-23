@@ -15,14 +15,32 @@ final ThemeData lightTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           backgroundColor: lightColors['primary'],
-          foregroundColor: lightColors['textPrimary']
+          foregroundColor: lightColors['textPrimary'],
+
+          disabledForegroundColor: lightColors['textSecondary'],
+          disabledBackgroundColor: lightColors['secondary']
       )
   ),
+
   textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-          foregroundColor: lightColors['textPrimary']
+          foregroundColor: lightColors['textPrimary'],
+          disabledForegroundColor: lightColors['textSecondary'],
       )
   ),
+
+  outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: lightColors['textPrimary'],
+        overlayColor: lightColors['secondary'],
+        side: BorderSide(
+          color: lightColors['primary'] ?? Colors.transparent, // Border color
+        ),
+
+        disabledForegroundColor: lightColors['textSecondary'],
+      )
+  ),
+
   floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: lightColors['primary']
   )
@@ -38,13 +56,28 @@ final ThemeData darkTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: darkColors['primary'],
-        foregroundColor: darkColors['textPrimary']
+        foregroundColor: darkColors['textPrimary'],
+
+        disabledForegroundColor: darkColors['textSecondary'],
+        disabledBackgroundColor: darkColors['secondary']
       )
   ),
   textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-          foregroundColor: darkColors['textPrimary']
+          foregroundColor: darkColors['textPrimary'],
+          disabledForegroundColor: darkColors['textSecondary']
       )
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      foregroundColor: darkColors['textPrimary'],
+      overlayColor: darkColors['secondary'],
+      side: BorderSide(
+        color: darkColors['primary'] ?? Colors.transparent, // Border color
+      ),
+
+      disabledForegroundColor: darkColors['textSecondary'],
+    )
   ),
 
   floatingActionButtonTheme: FloatingActionButtonThemeData(
