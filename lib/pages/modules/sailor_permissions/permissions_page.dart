@@ -2,9 +2,12 @@ import 'dart:developer' as console;
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mariner/components/lists/FAB.dart';
 import 'package:mariner/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:mariner/components/lists/header_title.dart';
+import 'package:mariner/theme/colors.dart';
+import 'package:mariner/components/module/popup_alert.dart';
 
 @RoutePage()
 class SailorPermissionsPermissionsPage extends StatelessWidget {
@@ -12,20 +15,22 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final colors = ThemeColors.of(context);
 
     final List<SailorPermission> sailorPermissions = [
       const SailorPermission(name: 'Jakaś Nazwa', type: ' Jakiś Typ' ),
       const SailorPermission(name: 'Trochę dłuższa nazwa', type: 'kolorowy typ', color: Colors.blue,),
-      const SailorPermission(name: 'WWWWWWWWWWWWWFASFASF', type: 'CośtamCośtamTamTam',),
+      const SailorPermission(name: 'Testowa nazwa', type: 'Coś tam jakoś tam',),
     ];
+
+    final List<String> types = ['typ1', 'typ2', 'random typ'];
 
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 16.0),
         child: Column(
           children: [
-            Row(
+            const Row(
               children: [
                 const Expanded(
                   child: HeaderTitle(title: 'Nazwa')
@@ -33,19 +38,20 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
                 const Expanded(
                     child: HeaderTitle(title: 'Typ')
                 ),
-                Builder(builder: (context){
-                  if(Provider.of<UserProvider>(context).isAdmin){
-                    return const Row(
-                      children: [
-                        SizedBox(width: 8.0,),
-                        HeaderTitle(title: 'Opcje'),
-                        SizedBox(width: 24.0)
-                      ],
-                    );
-                  }
-                  return SizedBox();
-                  }
-                )
+                SizedBox(width: 40,)
+                // Builder(builder: (context){
+                //   if(Provider.of<UserProvider>(context).isAdmin){
+                //     return const Row(
+                //       children: [
+                //         SizedBox(width: 8.0,),
+                //         HeaderTitle(title: 'Opcje'),
+                //         SizedBox(width: 24.0)
+                //       ],
+                //     );
+                //   }
+                //   return SizedBox();
+                //   }
+                // )
 
               ],
             ),
@@ -53,11 +59,7 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
               child: ListView.builder(
                   itemCount: sailorPermissions.length,
                   itemBuilder: (context, index){
-                    return SailorPermission(
-                      name: sailorPermissions[index].name,
-                      type: sailorPermissions[index].type,
-                      color: sailorPermissions[index].color,
-                    );
+                    return sailorPermissions[index];
                   },
               ),
             )
@@ -65,12 +67,43 @@ class SailorPermissionsPermissionsPage extends StatelessWidget {
           ],
         )
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          console.log('add perm');
-        },
-        child: const Icon(Icons.add)
-      ),
+      floatingActionButton: FAB(onPressed: (){
+        showModalBottomSheet(context: context, builder: (context){
+          return Container(
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: colors['background'],
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0) )
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const HeaderTitle(title: 'Dodaj nowy patent'),
+                TextField(
+                  onChanged: (value){},
+                  decoration: const InputDecoration(
+                    labelText: 'Nazwa patentu',
+                    // hintText: 'żeglarz jachtowy'
+                  ),
+                ),
+                const SizedBox(height: 8.0,),
+                DropdownMenu(
+                  initialSelection: types.first,
+                  onSelected: (value){},
+                  width: double.maxFinite,
+                  dropdownMenuEntries: types.map<DropdownMenuEntry<String>>((String value) {
+                    return DropdownMenuEntry<String>(value: value, label: value);
+                  }).toList(),
+                ),
+                const SizedBox(height: 8.0,),
+                ElevatedButton(onPressed: (){
+                  Navigator.pop(context);
+                }, child: const Text('Dodaj')),
+              ],
+            ),
+          );
+        });
+      })
     );
   }
 }
@@ -87,24 +120,51 @@ class SailorPermission extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Text(name, textAlign: TextAlign.center,)),
+        Expanded(child: Text(name,
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          style: const TextStyle(
+            overflow: TextOverflow.ellipsis,
+          ),)),
         const SizedBox(width: 16.0),
-        Expanded(child: Text(type, textAlign: TextAlign.center,style: TextStyle(color: color,))),
+        Expanded(child: Text(type,
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            style: TextStyle(
+              color: color,
+              overflow: TextOverflow.ellipsis
+            ))),
 
-        Builder(builder: (context){
-          if(!Provider.of<UserProvider>(context).isAdmin) return const SizedBox(height: 48.0,);
-          return Row(
-            children: [
-              IconButton(onPressed: () {
-                if(!Provider.of<UserProvider>(context).isAdmin) return;
+        // Builder(builder: (context){
+        //   if(!Provider.of<UserProvider>(context, listen: false).isAdmin) return const SizedBox(height: 48.0,);
+        //   return Row(
+        //     children: [
+        //       IconButton(onPressed: () {
+        //         if(!Provider.of<UserProvider>(context, listen: false).isAdmin) return;
+        //
+        //       }, icon: const Icon(Icons.edit), ),
+        //       IconButton(onPressed: () {
+        //         if(!Provider.of<UserProvider>(context, listen: false).isAdmin) return;
+        //       }, icon: const Icon(Icons.delete)),
+        //     ],
+        //     );
+        // } )
 
-              }, icon: const Icon(Icons.edit), ),
-              IconButton(onPressed: () {
-                if(!Provider.of<UserProvider>(context).isAdmin) return;
-              }, icon: const Icon(Icons.delete)),
-            ],
+        IconButton(onPressed: (){
+          showDialog(context: context, builder: (BuildContext context){
+            return PopupAlert(
+              title: 'Szczegóły',
+              confirmText: Provider.of<UserProvider>(context).isAdmin ? 'Edytuj' : null,
+              cancelText: Provider.of<UserProvider>(context).isAdmin ? 'Usuń' : null,
+
+              children: [
+                Text('Nazwa: $name'),
+                Text('Typ: $type'),
+              ],
             );
-        } )
+          });
+
+        }, icon: const Icon(Icons.more_vert))
       ],
     );
   }

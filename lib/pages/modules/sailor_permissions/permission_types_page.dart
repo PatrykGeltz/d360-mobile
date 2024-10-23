@@ -5,6 +5,7 @@ import 'package:mariner/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:mariner/components/lists/FAB.dart';
 import 'package:mariner/theme/colors.dart';
+import 'package:mariner/components/module/popup_alert.dart';
 
 @RoutePage()
 class SailorPermissionsPermissionTypesPage extends StatefulWidget {
@@ -28,14 +29,14 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.only(top: 24.0, left: 24.0, right: 16.0),
         child: Column(
           children: [
             const Row(
               children: [
                 Expanded(child: HeaderTitle(title: 'Rodzaj')),
-                HeaderTitle(title: 'Opcje'),
-                SizedBox(width: 16.0,)
+                // HeaderTitle(title: 'Opcje'),
+                // SizedBox(width: 16.0,)
               ],
             ),
             Expanded(child: ListView.builder(
@@ -90,13 +91,28 @@ class SailorPermissionType extends StatelessWidget {
     return Row(
       children: [
         Expanded(child: Text(name, style: TextStyle(color: color),)),
-        IconButton(onPressed: () {
-          if(!Provider.of<UserProvider>(context).isAdmin) return;
+        // IconButton(onPressed: () {
+        //   if(!Provider.of<UserProvider>(context).isAdmin) return;
+        //
+        // }, icon: const Icon(Icons.edit), ),
+        // IconButton(onPressed: () {
+        //   if(!Provider.of<UserProvider>(context).isAdmin) return;
+        // }, icon: const Icon(Icons.delete)),
+        IconButton(onPressed: (){
+          showDialog(context: context, builder: (BuildContext context){
+            return PopupAlert(
+              title: 'Szczegóły',
+              confirmText: Provider.of<UserProvider>(context).isAdmin ? 'Edytuj' : null,
+              cancelText: Provider.of<UserProvider>(context).isAdmin ? 'Usuń' : null,
 
-        }, icon: const Icon(Icons.edit), ),
-        IconButton(onPressed: () {
-          if(!Provider.of<UserProvider>(context).isAdmin) return;
-        }, icon: const Icon(Icons.delete)),
+              children: [
+                Text('Nazwa typu: $name'),
+                Text('kolor: RGB(${color?.red ?? 0}, ${color?.green ?? 0}, ${color?.blue ?? 0})'),
+              ],
+            );
+          });
+
+        }, icon: const Icon(Icons.more_vert))
       ],
     );
   }
