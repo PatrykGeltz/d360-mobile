@@ -1,3 +1,5 @@
+import 'dart:developer' as console;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -18,10 +20,20 @@ class ContributionsDictionaryPage extends StatelessWidget {
       DictionaryItemModel(name: 'Słowo 4'),
     ];
 
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
       child: DictionaryList(
-        items: items
+        items: items,
+        onDelete: (index) {
+          final item = items[index];
+
+          console.log('Delete item "${item.name}"');
+        },
+        onEdit: (index, newItem) {
+          final item = items[index];
+
+          console.log('Edited item ${item.name}');
+        }
       ),
     );
   }
