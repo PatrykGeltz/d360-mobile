@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mariner/theme/colors.dart';
 
-class DangerBTN extends StatelessWidget {
-  const DangerBTN({super.key, required this.title, this.onPressed, this.outlined = true});
+class DangerButton extends StatelessWidget {
+  const DangerButton({super.key, required this.title, this.onPressed, this.outlined = true});
 
   final String title;
   final VoidCallback? onPressed;

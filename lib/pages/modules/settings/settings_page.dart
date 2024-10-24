@@ -4,7 +4,7 @@ import 'package:mariner/theme/colors.dart';
 
 // Components
 import 'package:mariner/components/settings/option.dart';
-import 'package:mariner/components/module/danger_btn.dart';
+import 'package:mariner/components/module/danger_button.dart';
 
 @RoutePage()
 class SettingsPage extends StatefulWidget {
@@ -102,8 +102,8 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
             ...options,
             Divider(color: colors['special'],),
-            const DangerBTN(title: 'Zmień administratora grupy', outlined: false,),
-            const DangerBTN(title: 'Usuń grupę', outlined: false,),
+            const DangerButton(title: 'Zmień administratora grupy', outlined: false,),
+            const DangerButton(title: 'Usuń grupę', outlined: false,),
             const Expanded(child: SizedBox()),
             ElevatedButton(onPressed: (){}, child: const Text('Zapisz i wyjdź')),
             OutlinedButton(onPressed: (){}, child: const Text('wyjdź'))
