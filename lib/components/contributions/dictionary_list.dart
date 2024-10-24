@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:mariner/components/module/popup_alert.dart';
+import 'package:mariner/components/contributions/dictionary_item_edit_form_popup.dart';
 
 import 'package:mariner/models/dictionary_item_model.dart';
 
@@ -27,23 +28,11 @@ class DictionaryList extends StatelessWidget {
               onPressed: () {
                 showDialog(
                   context: context,
-                  builder: (context) => PopupAlert(
-                    title: 'Edycja pojęcia',
-                    actionsBuilder: (context) => [
-                      TextButton(
-                        onPressed: () {
-                          PopupAlert.close(context);
-                        },
-                        child: const Text('Anuluj'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          PopupAlert.close(context);
-                        },
-                        child: const Text('Zapisz'),
-                      ),
-                    ],
-                    children: const <Widget>[],
+                  builder: (context) => DictionaryItemEditFormPopup(
+                    item: item,
+                    onEdit: (newItem) {
+                      if (onEdit != null) onEdit!(index, newItem);
+                    }
                   )
                 );
               },

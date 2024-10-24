@@ -19,12 +19,14 @@ class DecimalTextInputFormatter extends TextInputFormatter {
 }
 
 class TextInput extends StatelessWidget {
-  const TextInput({super.key, required this.controller, this.placeholder, this.label, this.type});
+  const TextInput({super.key, required this.controller, this.placeholder, this.label, this.error, this.type, this.required = false});
 
   final TextEditingController controller;
   final String? placeholder;
   final String? label;
+  final String? error;
   final TextInputType? type;
+  final bool required;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,8 @@ class TextInput extends StatelessWidget {
         ? <TextInputFormatter>[DecimalTextInputFormatter()] : null,
       decoration: InputDecoration(
         hintText: placeholder,
-        labelText: label,
+        labelText: label != null && required ? '$label*' : null,
+        errorText: error,
         hintStyle: TextStyle(color: colors['textSecondary']),
         labelStyle: TextStyle(color: colors['textSecondary']),
 
