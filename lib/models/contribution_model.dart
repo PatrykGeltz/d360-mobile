@@ -1,14 +1,4 @@
 class ContributionModel {
-  const ContributionModel({
-    this.id = 0,
-    required this.name,
-    this.billingAmount = 0.0,
-    this.isForJunior = false,
-    this.startDate = '',
-    this.isActive = true,
-    this.isAdditional = false
-  });
-
   final int id;
   final String name;
   final double billingAmount;
@@ -17,6 +7,27 @@ class ContributionModel {
   final bool isActive;
   final bool isAdditional;
 
+  ContributionModel({
+    required this.id,
+    required this.name,
+    required this.billingAmount,
+    required this.isForJunior,
+    required this.startDate,
+    required this.isActive,
+    required this.isAdditional,
+  });
+
+  factory ContributionModel.fromJson(Map<String, dynamic> json) {
+    return ContributionModel(
+      id: json['id'],
+      name: json['name'],
+      billingAmount: double.parse(json['billing_amount']),
+      isForJunior: json['for_junior'],
+      startDate: json['start_date'],
+      isActive: json['is_active'],
+      isAdditional: json['is_additional'],
+    );
+  }
   ContributionModel copyWith({
     int? id,
     String? name,
