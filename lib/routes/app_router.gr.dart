@@ -361,10 +361,33 @@ class MembersJoinRequestsRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MembersMemberPage]
-class MembersMemberRoute extends PageRouteInfo<void> {
-  const MembersMemberRoute({List<PageRouteInfo>? children})
-      : super(
+class MembersMemberRoute extends PageRouteInfo<MembersMemberRouteArgs> {
+  MembersMemberRoute({
+    Key? key,
+    required String? id,
+    required String? name,
+    String? pesel = '* Nie podano *',
+    String? email = '* Nie podano *',
+    String? phone = '* Nie podano *',
+    String? city = '* Nie podano *',
+    String? address = '* Nie podano *',
+    String? dateOfApproval = '',
+    String? registerStatus = '',
+    List<PageRouteInfo>? children,
+  }) : super(
           MembersMemberRoute.name,
+          args: MembersMemberRouteArgs(
+            key: key,
+            id: id,
+            name: name,
+            pesel: pesel,
+            email: email,
+            phone: phone,
+            city: city,
+            address: address,
+            dateOfApproval: dateOfApproval,
+            registerStatus: registerStatus,
+          ),
           initialChildren: children,
         );
 
@@ -373,9 +396,61 @@ class MembersMemberRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const MembersMemberPage();
+      final args = data.argsAs<MembersMemberRouteArgs>();
+      return MembersMemberPage(
+        key: args.key,
+        id: args.id,
+        name: args.name,
+        pesel: args.pesel,
+        email: args.email,
+        phone: args.phone,
+        city: args.city,
+        address: args.address,
+        dateOfApproval: args.dateOfApproval,
+        registerStatus: args.registerStatus,
+      );
     },
   );
+}
+
+class MembersMemberRouteArgs {
+  const MembersMemberRouteArgs({
+    this.key,
+    required this.id,
+    required this.name,
+    this.pesel = '* Nie podano *',
+    this.email = '* Nie podano *',
+    this.phone = '* Nie podano *',
+    this.city = '* Nie podano *',
+    this.address = '* Nie podano *',
+    this.dateOfApproval = '',
+    this.registerStatus = '',
+  });
+
+  final Key? key;
+
+  final String? id;
+
+  final String? name;
+
+  final String? pesel;
+
+  final String? email;
+
+  final String? phone;
+
+  final String? city;
+
+  final String? address;
+
+  final String? dateOfApproval;
+
+  final String? registerStatus;
+
+  @override
+  String toString() {
+    return 'MembersMemberRouteArgs{key: $key, id: $id, name: $name, pesel: $pesel, email: $email, phone: $phone, city: $city, address: $address, dateOfApproval: $dateOfApproval, registerStatus: $registerStatus}';
+  }
 }
 
 /// generated route for

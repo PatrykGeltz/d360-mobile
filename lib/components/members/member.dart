@@ -1,7 +1,12 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:mariner/routes/app_router.dart';
+
 import 'member_detail.dart';
 
 class Member extends StatelessWidget {
@@ -70,7 +75,18 @@ class Member extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('Pressed user: $name');
+        final router = AutoRouter.of(context);
+        router.push(MembersMemberRoute(
+          id: id,
+          name: name,
+          pesel: pesel,
+          email: email,
+          phone: phone,
+          address: address,
+          city: city,
+          registerStatus: register_status,
+          dateOfApproval: date_of_approval
+        ));
       },
       child: Row(
         children: [
