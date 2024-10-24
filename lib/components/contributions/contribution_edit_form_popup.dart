@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:developer' as console;
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'package:mariner/components/module/popup_alert.dart';
 import 'package:mariner/components/module/text_input.dart';
@@ -23,6 +27,10 @@ class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
   final CheckboxController _isForJunior = CheckboxController();
   final CheckboxController _isActive = CheckboxController();
   final CheckboxController _isAdditional = CheckboxController();
+
+  String? _nameError;
+  String? _billingAmountError;
+  String? _startDateError;
 
   @override
   void initState() {
@@ -53,13 +61,61 @@ class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
           onPressed: () {
             bool validated = true;
 
+            var dateFormat = DateFormat('dd.MM.yyyy');
+            var substituteDateFormat = DateFormat('dd.MM.yyyy');
+
+            if (_name.text.trim() == '') {
+              setState(() {
+                _nameError = 'To pole nie może być puste';
+              });
+
+              validated = false;
+            }
+
+            if (_billingAmount.text.trim() == '') {
+              setState(() {
+                _billingAmountError = 'To pole nie może być puste';
+              });
+
+              validated = false;
+            } else if (double.tryParse(_billingAmount.text) == null) {
+              setState(() {
+                _billingAmountError = 'Kwota musi być liczbą';
+              });
+
+              validated = false;
+            }
+
+            if (substituteDateFormat.tryParse(_startDate.text) == null) {
+              setState(() {
+                _startDateError = 'Podaj prawidłową datę (dd-MM-yyyy)';
+              });
+
+              validated = false;
+            }
+
+            if (dateFormat.tryParse(_startDate.text) == null) {
+              setState(() {
+                _startDateError = 'Podaj prawidłową datę (dd.MM.yyyy)';
+              });
+
+              validated = false;
+            }
+
             if (validated) {
               PopupAlert.close(context);
 
               ContributionModel contribution = widget.contribution.copyWith(
                 name: _name.text,
-                billingAmount: double.parse(_billingAmount.text)
+                billingAmount: double.parse(_billingAmount.text),
+                startDate: dateFormat.format(dateFormat.tryParse(_startDate.text)
+                  ?? substituteDateFormat.parse(_startDate.text)),
+                isForJunior: _isForJunior.value,
+                isActive: _isActive.value,
+                isAdditional: _isAdditional.value
               );
+
+              console.log(contribution.startDate);
 
               if (widget.onSuccess != null) widget.onSuccess!(contribution);
             }
@@ -70,16 +126,20 @@ class _ContributionEditFormPopupState extends State<ContributionEditFormPopup> {
       children: <Widget>[
         TextInput(
           controller: _name,
-          label: 'Nazwa składki'
+          label: 'Nazwa składki',
+          error: _nameError,
         ),
         TextInput(
           controller: _billingAmount,
           label: 'Kwota',
           type: TextInputType.number,
+          error: _billingAmountError
         ),
         TextInput(
           controller: _startDate,
           label: 'Data rozpoczęcia',
+          pattern: RegExp(r'^[0-9\.\-]*$'),
+          error: _startDateError,
         ),
         LabeledCheckbox(
           controller: _isForJunior,
