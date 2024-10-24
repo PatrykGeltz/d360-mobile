@@ -2,6 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mariner/theme/colors.dart';
 
+// Components
+import 'package:mariner/components/settings/option.dart';
+import 'package:mariner/components/module/danger_btn.dart';
+
 @RoutePage()
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -98,8 +102,8 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
             ...options,
             Divider(color: colors['special'],),
-            DangerBTN(title: 'Zmień administratora grupy'),
-            DangerBTN(title: 'Usuń grupę'),
+            const DangerBTN(title: 'Zmień administratora grupy', outlined: false,),
+            const DangerBTN(title: 'Usuń grupę', outlined: false,),
             const Expanded(child: SizedBox()),
             ElevatedButton(onPressed: (){}, child: const Text('Zapisz i wyjdź')),
             OutlinedButton(onPressed: (){}, child: const Text('wyjdź'))
@@ -107,75 +111,6 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
       ),
     );
-  }
-}
-
-// Option component
-class Option extends StatelessWidget {
-  const Option({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.children,
-  });
-
-  final IconData icon;
-  final String title;
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(icon),
-              const SizedBox(width: 16.0),
-              Text('$title: ', style: const TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w700
-              ),),
-              const SizedBox(width: 8.0),
-              ...children
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class DangerBTN extends StatelessWidget {
-  const DangerBTN({super.key, required this.title, this.onPressed});
-  
-  final String title;
-  final VoidCallback? onPressed;
-  
-  @override
-  Widget build(BuildContext context) {
-    final colors = ThemeColors.of(context);
-    
-    return TextButton(
-        onPressed: onPressed,
-        // style: TextButton.styleFrom(
-        //   side: BorderSide(
-        //       color: colors['danger']
-        //   ),
-        // ),
-        child: Text(title, style: TextStyle(
-          color: Colors.transparent,
-          decoration: TextDecoration.underline,
-          decorationColor: colors['danger'],
-          decorationThickness: 3,
-          shadows:  const [
-            Shadow(
-                color: Colors.red,
-                offset: Offset(0, -5))
-          ],
-        )));
   }
 }
 
