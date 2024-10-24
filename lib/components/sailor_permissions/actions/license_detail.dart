@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+
+// components
 import 'package:mariner/components/module/popup_alert.dart';
+import 'package:mariner/components/module/danger_button.dart';
 import 'license_edit.dart';
+import 'license_confirm_delete.dart';
 
 class LicenseDetail extends StatelessWidget {
   const LicenseDetail({
@@ -24,11 +28,16 @@ class LicenseDetail extends StatelessWidget {
         ],
         actionsBuilder: (context) {
           return [
-            ElevatedButton(
+            DangerButton(
                 onPressed: () {
                   PopupAlert.close(context);
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return LicenseConfirmDelete(name: name);
+                      });
                 },
-                child: const Text('Usuń')),
+                title: 'Usuń'),
             ElevatedButton(
                 onPressed: () {
                   PopupAlert.close(context);
