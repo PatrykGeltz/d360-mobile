@@ -10,6 +10,7 @@ import 'package:mariner/providers/user_provider.dart';
 import 'package:mariner/components/lists/FAB.dart';
 import 'package:mariner/theme/colors.dart';
 import 'package:mariner/components/module/popup_alert.dart';
+import 'package:mariner/components/sailor_permissions/permission_type.dart';
 
 @RoutePage()
 class SailorPermissionsPermissionTypesPage extends StatefulWidget {
@@ -122,7 +123,7 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
                         final permissionType = snapshot.data![index];
-                        return SailorPermissionType(
+                        return PermissionType(
                           id: permissionType.id,
                           name: permissionType.name,
                           color: permissionType.color,
@@ -202,57 +203,3 @@ class SailorPermissionTypeData {
   }
 }
 
-class SailorPermissionType extends StatelessWidget {
-  const SailorPermissionType({super.key, required this.name, required this.id, required this.deletePermissionType, this.color});
-
-  final String name;
-  final Color? color;
-  final int id;
-  final deletePermissionType;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(child: Text(name, style: TextStyle(color: color))),
-        IconButton(onPressed: () {
-          showDialog(context: context, builder: (BuildContext context) {
-            return PopupAlert(
-              title: 'Szczegóły',
-              actionsBuilder: (context) {
-                return [
-                  if (Provider.of<UserProvider>(context).isAdmin) ...[
-                    ElevatedButton(
-                      onPressed: () {
-                        deletePermissionType();
-                        PopupAlert.close(context);
-                      },
-                      child: const Text('Usuń'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        PopupAlert.close(context);
-                      },
-                      child: const Text('Edytuj'),
-                    ),
-                  ] else ...[
-                    TextButton(
-                      onPressed: () {
-                        PopupAlert.close(context);
-                      },
-                      child: const Text('Zamknij'),
-                    ),
-                  ],
-                ];
-              },
-              children: [
-                Text('Nazwa typu: $name'),
-                Text('Kolor: RGB(${color?.red ?? 0}, ${color?.green ?? 0}, ${color?.blue ?? 0})'),
-              ],
-            );
-          });
-        }, icon: const Icon(Icons.more_vert)),
-      ],
-    );
-  }
-}
