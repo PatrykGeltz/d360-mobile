@@ -1,82 +1,60 @@
+import 'dart:developer' as console;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mariner/components/members/role_add_popup.dart';
+
+import 'package:mariner/components/members/roles_list.dart';
+
+import 'package:mariner/models/role_model.dart';
 
 @RoutePage()
 class MembersRolesPage extends StatelessWidget {
-  static const String id = '/members/roles';
-
   const MembersRolesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const List<RoleModel> roles = [
+      RoleModel(name: 'Rola 1', color: Color(0xFFFF0000)),
+      RoleModel(name: 'Rola 2', color: Color(0xFFFFFF00)),
+      RoleModel(name: 'Rola 3', color: Color(0xFF00FF00)),
+      RoleModel(name: 'Rola 4', color: Color(0xFF0000FF)),
+      RoleModel(name: 'Rola 4', color: Color(0xFF0000FF)),
+      RoleModel(name: 'Rola 4', color: Color(0xFF0000FF)),
+    ];
+
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          Row(
-            children: [
-              const Expanded(child: SizedBox()),
-              ElevatedButton(onPressed: (){
-                showModalBottomSheet(context: context, builder: (BuildContext context){
-                  return Container(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const Text('Dodaj rolę', style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 25.0,
-                        ), ),
+          Expanded(
+            child: RolesList(
+              roles: roles,
+              onEdit: (index, newRole) {
+                final role = roles[index];
 
-                        const Text('Nazwa roli'),
-                        TextField(
-                          autofocus: true,
-                          maxLength: 20,
-                          onChanged: (value){
-                            print(value);
-                          },
-                        )
-                      ],
-                    ),
-                  );
-                } );
-              }, child: const Text('Dodaj nową role'))
-            ],
+                console.log('Edited role "${role.name}"');
+              },
+              onDelete: (index) {
+                final role = roles[index];
+
+                console.log('Deleted role "${role.name}"');
+              },
+            ),
           ),
-          const SizedBox(height: 20.0,),
-          const Row(
-            children: [
-              SizedBox(width: 20.0),
-              Text('Kolor'),
-              SizedBox(width: 20.0),
-              Text('Nazwa'),
-              Expanded(child: SizedBox()),
-              Text('Opcje'),
-              SizedBox(width: 20.0,)
-            ],
-          ),
-           Row(
-            children: [
-              const SizedBox(width: 30.0),
-              const CircleAvatar(backgroundColor: Colors.red, radius: 10.0,),
-              const SizedBox(width: 25.0),
-              const Text('Role layout'),
-              const Expanded(child: SizedBox()),
-              IconButton(onPressed: (){print('edit item');}, icon: const Icon(Icons.edit)),
-              IconButton(onPressed: (){print('delete item');}, icon: const Icon(Icons.delete)),
-            ],
-          ),
-          Row(
-            children: [
-              const SizedBox(width: 30.0),
-              const CircleAvatar(backgroundColor: Colors.blue, radius: 10.0,),
-              const SizedBox(width: 25.0),
-              const Text('Role layout'),
-              const Expanded(child: SizedBox()),
-              IconButton(onPressed: (){print('edit item');}, icon: const Icon(Icons.edit)),
-              IconButton(onPressed: (){print('delete item');}, icon: const Icon(Icons.delete)),
-            ],
-          ),
+          ElevatedButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => RoleAddPopup(
+                  onSuccess: (newRole) {
+                    console.log('Created new role named "${newRole.name}" with color ${newRole.color.toString()}');
+                  },
+                )
+              );
+            },
+            child: const Text('Dodaj rolę'),
+          )
         ],
       ),
     );
