@@ -25,7 +25,6 @@ import 'package:mariner/pages/modules/members/member_page.dart';
 import 'package:mariner/pages/modules/contributions/module_page.dart';
 import 'package:mariner/pages/modules/contributions/menu_page.dart';
 import 'package:mariner/pages/modules/contributions/contributions_page.dart';
-import 'package:mariner/pages/modules/contributions/dictionary_page.dart';
 import 'package:mariner/pages/modules/contributions/history_page.dart';
 
 // Sailor permissions module

@@ -99,7 +99,7 @@ class ContributionsDictionaryRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const ContributionsDictionaryPage();
+      return const ContributionsPage();
     },
   );
 }
