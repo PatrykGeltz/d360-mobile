@@ -11,6 +11,7 @@ import 'package:mariner/components/lists/FAB.dart';
 import 'package:mariner/theme/colors.dart';
 import 'package:mariner/components/module/popup_alert.dart';
 import 'package:mariner/components/sailor_permissions/permission_type.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart'; // Dodane do palety kolorów
 
 @RoutePage()
 class SailorPermissionsPermissionTypesPage extends StatefulWidget {
@@ -22,6 +23,8 @@ class SailorPermissionsPermissionTypesPage extends StatefulWidget {
 
 class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissionsPermissionTypesPage> {
   late Future<List<SailorPermissionTypeData>> _futurePermissionTypes;
+  String? permissionTypeName; // Zmienna na nazwę nowego typu
+  Color selectedColor = Colors.blue; // Domyślnie ustawiony kolor
 
   @override
   void initState() {
@@ -59,6 +62,75 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
     }
   }
 
+  // Funkcja do wybrania koloru za pomocą palety
+  void _pickColor() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Wybierz kolor'),
+          content: SingleChildScrollView(
+            child: ColorPicker(
+              pickerColor: selectedColor,
+              onColorChanged: (Color color) {
+                setState(() {
+                  selectedColor = color; // Zmiana wybranego koloru
+                });
+              },
+              showLabel: true,
+              pickerAreaHeightPercent: 0.8,
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              child: const Text('Wybierz'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _addPermissionType() async {
+    const url = 'https://acme-dev.d360.pl/api/v1/sailor-permissions-types';
+    final prefs = await SharedPreferences.getInstance();
+    var token = prefs.getString("access_token");
+
+    if (token == null || permissionTypeName == null) {
+      throw Exception('Niekompletne dane');
+    }
+    setState(() {
+      
+    });
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode({
+          'name': permissionTypeName,
+          'color': {'hex':'#${(selectedColor.red.toRadixString(16)).padLeft(2, '0')}${(selectedColor.green.toRadixString(16)).padLeft(2, '0')}${(selectedColor.blue.toRadixString(16)).padLeft(2, '0')}'},
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        setState(() {
+          _futurePermissionTypes = _fetchPermissionTypes();
+        });
+      } else {
+        throw Exception('Nie udało się dodać typu patentu');
+      }
+    } catch (e) {
+      console.log('Error: $e');
+      throw Exception('Błąd podczas dodawania typu patentu: $e');
+    }
+  }
 
   Future<void> _deletePermissionType(int id) async {
     final url = 'https://acme-dev.d360.pl/api/v1/sailor-permissions-types/$id';
@@ -92,7 +164,6 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     final colors = ThemeColors.of(context);
@@ -102,14 +173,11 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
         padding: const EdgeInsets.only(top: 24.0, left: 24.0, right: 16.0),
         child: Column(
           children: [
-            // Header
             const Row(
               children: [
                 Expanded(child: HeaderTitle(title: 'Rodzaj')),
               ],
             ),
-
-            // FutureBuilder for async data fetching
             Expanded(
               child: FutureBuilder<List<SailorPermissionTypeData>>(
                 future: _futurePermissionTypes,
@@ -127,7 +195,7 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
                           id: permissionType.id,
                           name: permissionType.name,
                           color: permissionType.color,
-                          deletePermissionType: ()=>{_deletePermissionType(permissionType.id)}
+                          deletePermissionType: () => _deletePermissionType(permissionType.id),
                         );
                       },
                     );
@@ -157,16 +225,39 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
                 const HeaderTitle(title: 'Dodaj nowy rodzaj'),
                 TextField(
                   onChanged: (value) {
-                    Provider.of<UserProvider>(context, listen: false).editedValue = value;
+                    permissionTypeName = value;
                   },
+                  decoration: const InputDecoration(labelText: 'Nazwa typu'),
                 ),
-                ElevatedButton(onPressed: () {
-                  setState(() {
-                    // Dodawanie nowego typu do listy (lokalnie)
-                  });
-                  Provider.of<UserProvider>(context, listen: false).editedValue = '';
-                  Navigator.pop(context);
-                }, child: const Text('Dodaj')),
+                const SizedBox(height: 8.0),
+                GestureDetector(
+                  onTap: _pickColor,
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      border: Border.all(color: Colors.grey),
+                      color: selectedColor, // Wybrany kolor
+                    ),
+                    child: const Text(
+                      'Wybierz kolor',
+                      style: TextStyle(color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                ElevatedButton(
+                  onPressed: () async {
+                    try {
+                      await _addPermissionType();
+                      Navigator.pop(context); // Zamknięcie modala po dodaniu
+                    } catch (e) {
+                      console.log('Błąd dodawania: $e');
+                    }
+                  },
+                  child: const Text('Dodaj'),
+                ),
               ],
             ),
           );
@@ -175,6 +266,7 @@ class _SailorPermissionsPermissionTypesPageState extends State<SailorPermissions
     );
   }
 }
+
 class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
@@ -186,6 +278,7 @@ class HexColor extends Color {
 
   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
 }
+
 // Model danych typu patentu żeglarza
 class SailorPermissionTypeData {
   final String name;
@@ -198,8 +291,7 @@ class SailorPermissionTypeData {
     return SailorPermissionTypeData(
       id: json['id'] as int,
       name: json['name'] as String,
-      color: HexColor(json['color']), // Można dynamicznie pobierać kolor
+      color: HexColor(json['color']),
     );
   }
 }
-
