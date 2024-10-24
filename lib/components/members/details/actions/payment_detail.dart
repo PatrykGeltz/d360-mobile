@@ -37,7 +37,7 @@ class PaymentDetail extends StatelessWidget {
                   showDialog(
                       context: context,
                       builder: (context) {
-                        return PaymentConfirmDelete();
+                        return const PaymentConfirmDelete();
                       });
                 },
                 title: 'Usuń'),
@@ -47,7 +47,7 @@ class PaymentDetail extends StatelessWidget {
                   showDialog(
                       context: context,
                       builder: (context) {
-                        return PaymentEdit();
+                        return const PaymentEdit();
                       });
                 },
                 child: const Text('Edytuj')),

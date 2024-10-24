@@ -28,9 +28,11 @@ class LicenseEdit extends StatelessWidget {
         children: <Widget>[
           Row(
             children: [
-              const Text('Nazwa: '),
               Expanded(
                 child: TextField(
+                  decoration: const InputDecoration(
+                      hintText: 'Nazwa'
+                  ),
                   onChanged: (value) {},
                 ),
               )
@@ -38,9 +40,11 @@ class LicenseEdit extends StatelessWidget {
           ),
           Row(
             children: [
-              const Text('Nr licencji: '),
               Expanded(
                 child: TextField(
+                  decoration: const InputDecoration(
+                      hintText: 'Nr licencji'
+                  ),
                   onChanged: (value) {},
                 ),
               )
@@ -48,9 +52,11 @@ class LicenseEdit extends StatelessWidget {
           ),
           Row(
             children: [
-              const Text('Data wydania: '),
               Expanded(
                 child: TextField(
+                  decoration: const InputDecoration(
+                      hintText: 'Data wydania'
+                  ),
                   onChanged: (value) {},
                 ),
               )

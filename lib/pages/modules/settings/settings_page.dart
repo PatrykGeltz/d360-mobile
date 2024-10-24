@@ -100,11 +100,14 @@ class _SettingsPageState extends State<SettingsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ...options,
-            Divider(color: colors['special'],),
-            const DangerButton(title: 'Zmień administratora grupy', outlined: false,),
-            const DangerButton(title: 'Usuń grupę', outlined: false,),
-            const Expanded(child: SizedBox()),
+            Expanded(child: ListView(
+              children: [
+                ...options,
+                Divider(color: colors['special'],),
+                const DangerButton(title: 'Zmień administratora grupy', outlined: false,),
+                const DangerButton(title: 'Usuń grupę', outlined: false,),
+              ],
+            )),
             ElevatedButton(onPressed: (){}, child: const Text('Zapisz i wyjdź')),
             OutlinedButton(onPressed: (){}, child: const Text('wyjdź'))
           ],

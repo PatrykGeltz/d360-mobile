@@ -26,9 +26,11 @@ class PaymentEdit extends StatelessWidget {
         children: <Widget>[
           Row(
             children: [
-              const Text('Kwota: '),
               Expanded(
                 child: TextField(
+                  decoration: const InputDecoration(
+                    hintText: 'Kwota'
+                  ),
                   onChanged: (value) {},
                 ),
               )
@@ -36,9 +38,11 @@ class PaymentEdit extends StatelessWidget {
           ),
           Row(
             children: [
-              const Text('Metoda płatności: '),
               Expanded(
                 child: TextField(
+                  decoration: const InputDecoration(
+                      hintText: 'Metoda płatności'
+                  ),
                   onChanged: (value) {},
                 ),
               )
@@ -46,9 +50,11 @@ class PaymentEdit extends StatelessWidget {
           ),
           Row(
             children: [
-              const Text('Data: '),
               Expanded(
                 child: TextField(
+                  decoration: const InputDecoration(
+                      hintText: 'Data'
+                  ),
                   onChanged: (value) {},
                 ),
               )
@@ -56,9 +62,11 @@ class PaymentEdit extends StatelessWidget {
           ),
           Row(
             children: [
-              const Text('Status: '),
               Expanded(
                 child: TextField(
+                  decoration: const InputDecoration(
+                      hintText: 'Kwota'
+                  ),
                   onChanged: (value) {},
                 ),
               )
