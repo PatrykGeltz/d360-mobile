@@ -69,7 +69,6 @@ class _DictionaryItemEditFormPopupState extends State<DictionaryItemEditFormPopu
           controller: _name,
           label: 'Nazwa pojęcia',
           error: _nameError,
-          required: true,
         )
       ],
     );
