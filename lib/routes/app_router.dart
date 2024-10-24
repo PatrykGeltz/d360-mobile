@@ -19,6 +19,7 @@ import 'package:mariner/pages/modules/members/join_requests_page.dart';
 import 'package:mariner/pages/modules/members/statuses_page.dart';
 import 'package:mariner/pages/modules/members/roles_page.dart';
 import 'package:mariner/pages/modules/members/invites_page.dart';
+import 'package:mariner/pages/modules/members/member_page.dart';
 
 // Contributions module
 import 'package:mariner/pages/modules/contributions/module_page.dart';
@@ -82,6 +83,10 @@ class AppRouter extends RootStackRouter {
             page: MembersMenuRoute.page,
             path: '',
             initial: true
+        ),
+        AutoRoute(
+            page: MembersMemberRoute.page,
+            path: 'member'
         ),
         AutoRoute(
             page: MembersUsersRoute.page,

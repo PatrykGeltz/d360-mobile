@@ -360,6 +360,25 @@ class MembersJoinRequestsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MembersMemberPage]
+class MembersMemberRoute extends PageRouteInfo<void> {
+  const MembersMemberRoute({List<PageRouteInfo>? children})
+      : super(
+          MembersMemberRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MembersMemberRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MembersMemberPage();
+    },
+  );
+}
+
+/// generated route for
 /// [MembersMenuPage]
 class MembersMenuRoute extends PageRouteInfo<void> {
   const MembersMenuRoute({List<PageRouteInfo>? children})

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 @RoutePage()
-class MemberPage extends StatelessWidget {
-  const MemberPage({super.key});
+class MembersMemberPage extends StatelessWidget {
+  const MembersMemberPage({super.key});
 
   @override
   Widget build(BuildContext context) {
