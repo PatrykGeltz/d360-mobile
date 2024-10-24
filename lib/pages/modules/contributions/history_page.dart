@@ -12,7 +12,7 @@ class ContributionsHistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const List<ContributionHistoryModel> contributions = [
+    List<ContributionHistoryModel> contributions = [
       ContributionHistoryModel(
         id: 1,
         contribution: ContributionModel(
@@ -43,8 +43,8 @@ class ContributionsHistoryPage extends StatelessWidget {
       )
     ];
 
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
+    return Padding(
+      padding:  const EdgeInsets.all(16.0),
       child: ContributionsHistoryList(contributions: contributions),
     );
   }
