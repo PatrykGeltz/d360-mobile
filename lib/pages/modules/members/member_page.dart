@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:mariner/theme/colors.dart';
+
+// Components
+import 'package:mariner/components/members/details/member_info.dart';
+import 'package:mariner/components/members/details/member_balance.dart';
+import 'package:mariner/components/members/details/member_donations.dart';
+import 'package:mariner/components/members/details/member_payment.dart';
+import 'package:mariner/components/members/details/member_permissions.dart';
+
+// Components for testing
+import 'package:mariner/components/members/details/license.dart';
+import 'package:mariner/components/members/details/payment.dart';
 
 @RoutePage()
 class MembersMemberPage extends StatelessWidget {
@@ -28,6 +40,44 @@ class MembersMemberPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final colors = ThemeColors.of(context);
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: ListView(
+        children: [
+          MemberInfo(
+              name: name!,
+              dateOfApproval: dateOfApproval!,
+              pesel: pesel!, email: email!, phone: phone!, address: address!
+          ),
+
+          Divider(color: colors['special'], height: 32.0,),
+
+          const MemberBalance(balance: 16.0, donated: 32.0,),
+
+          Divider(color: colors['special'], height: 32.0,),
+
+          const MemberPermissions(permissions: [
+            License(name: 'Coś tam tam', licenseNumber: '125215', obtainingDate: '24-12-2022'),
+            License(name: 'Coś tam innego', licenseNumber: '253616', obtainingDate: '19-6-2020')
+          ]),
+
+          Divider(color: colors['special'], height: 32.0,),
+
+          const MemberDonations(donations: [
+            Payment(amount: 32.32, paymentMethod: 'paypal', date: '24-24-24', status: 'approved',),
+            Payment(amount: 52.33)
+          ]),
+
+          Divider(color: colors['special'], height: 32.0,),
+
+          const MemberPayment(payments: [
+            Payment(amount: 126.23, paymentMethod: 'Steam gift card', date: '12-02-2021', status: 'declined',),
+            Payment(amount: 12246.23, paymentMethod: 'Przelew', date: '06-02-2021', status: 'accepted',)
+          ])
+
+        ],
+      ),
+    );
   }
 }

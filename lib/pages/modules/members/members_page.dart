@@ -15,7 +15,16 @@ class MembersUsersPage extends StatefulWidget {
 }
 
 class _MembersUsersPageState extends State<MembersUsersPage> {
-  List<Member> members = [];
+  List<Member> members = [
+    Member(
+        id: '1',
+        name: 'Witek',
+        pesel: '12222222211',
+        phone: '+48 242 252 142',
+        email: 'testmail@gmail.com',
+        date_of_approval: '24-07-2021',
+        onDelete: (){})
+  ];
   bool isLoading = true;
 
   @override

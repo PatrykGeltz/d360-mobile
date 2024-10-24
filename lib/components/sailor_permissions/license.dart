@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mariner/components/module/popup_alert.dart';
-import 'package:mariner/components/sailor_permissions/actions/license_detail.dart';
+import 'package:mariner/components/members/details/actions/license_detail.dart';
 
 class License extends StatelessWidget {
   const License({
